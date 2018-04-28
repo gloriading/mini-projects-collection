@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Mini projects</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <style>
       @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
       html, body {
@@ -15,6 +16,7 @@
       * {
         box-sizing: border-box;
       }
+/*      nav       */
       nav {
         width: 100%;
         height: 60px;
@@ -40,6 +42,7 @@
         background-color: rgba(255, 255, 255, 0.1);
         border: none;
       }
+/*      header       */
       header {
         width: 100%;
         padding: 40px;
@@ -48,9 +51,41 @@
         font-size: 2em;
         letter-spacing: 2px;
         font-family: 'Archivo Narrow', sans-serif;
+        margin-bottom: 0;
+      }
+      span.hello {
+        color: rgba(245, 59, 87,1.0);
+      }
+      span.my-name {
+        text-transform: uppercase;
+        color: rgba(44, 44, 84,1.0);
+        letter-spacing: 1px;
+        font-size: 2.5em;
+        position: relative;
+      }
+      span.icon-bell {
+        color: rgba(255, 211, 42, 0.6);
+        position: absolute;
+        font-size: 1em;
+        transform: rotate(-30deg);
+        top: -10px;
+        right: -20px;
+        z-index: -1;
       }
       header p {
+        margin-top: 0;
         font-size: 1.2em;
+      }
+      span.done {
+        padding: 2px;
+        border-bottom: 1px solid rgba(0,0,0,0.7);
+      }
+      span.doing {
+        padding: 2px;
+        border-top: 1px solid rgba(0,0,0,0.7);
+      }
+      span.for-fun {
+        color: rgba(0,0,0,0.5);
       }
     </style>
   </head>
@@ -60,8 +95,18 @@
       <a href="https://www.linkedin.com/in/gloriading/" target="_blank">Linkedin</a>
     </nav>
     <header>
-      <h2><span>Hi! </span>I am Gloria Ding. </h2>
-      <p> Here are some mini projects I have done / I am making to improve my coding skills. <span> (and for fun! )</span> </p>
+      <h2>
+        <span class="hello">Hi! </span>
+        I am
+        <span class="my-name">Gloria Ding <span class="icon-bell"><i class="far fa-bell"></i></span> </span>.
+      </h2>
+      <p>
+        Here are some mini projects
+        <span class="done">I have done</span>
+        <span class="doing">I am making</span>
+         to improve my coding skills.
+        <span class="for-fun"> (and for fun! )</span>
+      </p>
     </header>
   </body>
 </html>
