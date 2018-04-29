@@ -100,8 +100,23 @@
       span.date {
         color: rgba(245, 59, 87,1.0);
       }
-      span.game-name {
-        border-top: 2px solid rgba(0,0,0,0.7);
+      a.game-name {
+        color: rgba(44, 44, 84, 0.8);
+        position: relative;
+
+      }
+      a.game-name:after {
+        content: '';
+        width: 0%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-top: 2px solid rgba(255, 211, 42, 1);
+        transition: 1s ease;
+      }
+      a:hover:after {
+        width: 100%;
       }
     </style>
   </head>
@@ -127,7 +142,7 @@
     <main>
       <div class="current-project">
         <h3>
-          Starting <span class="date">April 28, 2018.</span> I have been working on <span class="game-name">a memory game</span>
+          Starting <span class="date">April 28, 2018.</span> I have been working on <a href="project-01/index.html" class="game-name">a memory game</a>
         </h3>
       </div>
     </main>
