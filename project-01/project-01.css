@@ -3,6 +3,7 @@
 html,body {
   padding: 0;
   margin: 0;
+  font-family: 'Archivo Narrow', sans-serif;
 }
 a {
   text-decoration: none;
@@ -28,7 +29,6 @@ a {
     padding: 10px;
     letter-spacing: 2px;
     margin-right: 5px;
-    font-family: 'Archivo Narrow', sans-serif;
   }
   nav a:last-of-type {
     margin-right: 5%;
@@ -46,7 +46,6 @@ header h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  font-family: 'Archivo Narrow', sans-serif;
 }
 
 /*      main      */
@@ -63,7 +62,6 @@ main {
   padding: 10px 40px;
   margin-bottom: 5px;
   font-size: 20px;
-  font-family: 'Archivo Narrow', sans-serif;
   letter-spacing: 2px;
   outline: none;
   transition: 0.3 ease;
@@ -93,7 +91,7 @@ main {
   height: 100%;
   text-align:center;
   transform-style: preserve-3d;
-  transition: transform 0.3s cubic-bezier(.87,-.41,.19,1.44);
+  transition: transform 0.3s cubic-bezier(.87,-.41,.19,1.44), color: 0.5s ease;
   transition-delay: border 0.5s;
 }
 .card div {
@@ -116,5 +114,10 @@ main {
   transform: rotateY( 180deg );
 }
 .card.disabled {
+  pointer-events: none;
+}
+.match {
+  border: 3px solid red;
+  color: white;
   pointer-events: none;
 }
