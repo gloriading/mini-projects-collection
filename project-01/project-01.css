@@ -99,9 +99,9 @@ main {
   background-color: green;
   transform: rotateY( 180deg );
 }
-.card:hover {
-  cursor: pointer;
-}
 .card.flipped {
   transform: rotateY( 180deg );
+}
+.card.disabled {
+  pointer-events: none;
 }
