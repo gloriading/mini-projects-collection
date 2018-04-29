@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Mini projects</title>
+    <title>Gloria | Mini projects</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <style>
-      @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+      @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow|Gaegu');
       html, body {
         margin: 0;
         padding: 0;
+        font-family: 'Archivo Narrow', sans-serif;
       }
       a {
         text-decoration: none;
@@ -33,7 +34,6 @@
         padding: 10px;
         letter-spacing: 2px;
         margin-right: 5px;
-        font-family: 'Archivo Narrow', sans-serif;
       }
       nav a:last-of-type {
         margin-right: 5%;
@@ -45,12 +45,11 @@
 /*      header       */
       header {
         width: 100%;
-        padding: 40px;
+        padding: 60px;
       }
       header h2 {
         font-size: 2em;
         letter-spacing: 2px;
-        font-family: 'Archivo Narrow', sans-serif;
         margin-bottom: 0;
       }
       span.hello {
@@ -87,6 +86,23 @@
       span.for-fun {
         color: rgba(0,0,0,0.5);
       }
+/*      current-project       */
+      .current-project {
+        width: 100%;
+        padding: 30px;
+        border-bottom: 3px solid rgba(0,0,0,0.2);
+        text-align: center;
+      }
+      .current-project h3 {
+        font-family: 'Gaegu', arial;
+        font-size: 2em;
+      }
+      span.date {
+        color: rgba(245, 59, 87,1.0);
+      }
+      span.game-name {
+        border-top: 2px solid rgba(0,0,0,0.7);
+      }
     </style>
   </head>
   <body>
@@ -108,5 +124,12 @@
         <span class="for-fun"> (and for fun! )</span>
       </p>
     </header>
+    <main>
+      <div class="current-project">
+        <h3>
+          Starting <span class="date">April 28, 2018.</span> I have been working on <span class="game-name">a memory game</span>
+        </h3>
+      </div>
+    </main>
   </body>
 </html>
