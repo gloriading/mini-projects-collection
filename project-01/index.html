@@ -16,6 +16,10 @@
       </h2>
     </header>
     <main>
+<!-- button       -->
+      <div class="control">
+        <button id="start">start</button>
+      </div>
 <!-- row 1       -->
       <div class="row">
 
@@ -148,7 +152,43 @@
   </main>
 
   <script>
+    let cardArr = ["star","moon","sun","dog","cat","bird","up","down","star","moon","sun","dog","cat","bird","up","down"];
+    const cardContents = document.querySelectorAll('.back');
+    const startBtn = document.getElementById('start');
     const cards = document.querySelectorAll('.card');
+
+// when the game start
+// 1- shuffle the cards
+// 2- restore the cards (cover the cards)
+    startBtn.addEventListener('click', gameStart);
+
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function cardsRestore(){
+      cards.forEach(function(card){
+        card.classList.remove('flipped');
+        card.classList.remove('disabled');
+      });
+    }
+
+    function gameStart(){
+      cardsRestore();
+      setTimeout(function(){
+        let newCardSet = shuffle(cardArr);
+        for(let i=0; i< cardContents.length; i++){
+          cardContents[i].innerHTML = newCardSet[i];
+        }
+      },300);
+    }
+
+
+// Handle card flip
 
     cards.forEach(function(card){
       card.addEventListener('click', displayCard);
