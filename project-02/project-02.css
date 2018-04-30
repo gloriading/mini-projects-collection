@@ -53,5 +53,41 @@ header h2 span {
   color: rgba(255, 77, 77, 0.3);
   top: -10px;
   left: 35%;
-
+}
+/*      main      */
+main {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+.control {
+  width: 200px;
+  border: 1px dotted red;
+  padding: 20px;
+}
+button#getColour {
+  display: block;
+  padding: 10px 30px;
+  font-size: 14px;
+  border: 1px solid deeppink;
+  color: deeppink;
+}
+button#getColour:hover {
+  background-color: deeppink;
+  color: white;
+  cursor: pointer;
+}
+.rand-colours {
+  width: 300px;
+  border: 1px dotted blue;
+  padding: 20px;
+}
+.colour-box {
+  width: 200px;
+  height: 60px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  font-size: 20px;
+  text-align: center;
 }
