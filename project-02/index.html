@@ -31,5 +31,37 @@
       </div>
     </main>
 
+  <script>
+  const btn = document.getElementById('getColour');
+  const divs = document.querySelectorAll('.colour-box');
+
+  let result;
+
+  function random(){
+    let number;
+    number = Math.floor( Math.random() * 255 );
+    return number;
+  }
+
+  function randomOpacity(){
+    let number;
+    number = Math.random().toFixed(2);
+    return number;
+  }
+
+  function colorGenerator(){
+    result = `rgba(${random()}, ${random()}, ${random()}, ${randomOpacity()})`;
+    return result;
+  }
+
+  btn.addEventListener('click',function(){
+    divs.forEach(function(div){
+      let temp = colorGenerator();
+      div.style.backgroundColor = temp;
+      div.innerHTML = temp;
+    });
+  });
+
+  </script>
   </body>
 </html>

@@ -71,11 +71,15 @@ button#getColour {
   font-size: 14px;
   border: 1px solid deeppink;
   color: deeppink;
+  outline: none;
 }
 button#getColour:hover {
   background-color: deeppink;
   color: white;
   cursor: pointer;
+}
+button#getColour:active {
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 .rand-colours {
   width: 300px;
@@ -88,6 +92,7 @@ button#getColour:hover {
   border: 1px solid black;
   margin-bottom: 10px;
   padding-top: 10px;
-  font-size: 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
   text-align: center;
 }
