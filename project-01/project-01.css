@@ -46,12 +46,19 @@ header h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
+  position: relative;
+}
+header h2 span {
+  position: absolute;
+  color: rgba(255, 77, 77, 0.3);
+  top: -10px;
+  left: 35%;
+
 }
 
 /*      main      */
 main {
   width: 100%;
-  border: 1px solid black;
   padding: 20px 40px;
   display: flex;
   flex-direction: column;
@@ -70,16 +77,18 @@ main {
   margin-left: 10px;
 }
 .control button {
-  padding: 5px 15px;
-  border-radius: 10%;
-  margin-bottom: 5px;
+  padding: 0px 15px;
+  border: 0;
+  border-bottom: 2px solid #ffb75e;
+  margin-bottom: 10px;
+  margin-right: 10px;
   font-size: 20px;
   letter-spacing: 2px;
   outline: none;
-  transition: 0.3 ease;
+  transition: 0.5 ease;
 }
 .control button:hover {
-  background-color: rgba(0,0,0,0.2);
+  border-bottom: 10px solid #ffb75e;
   cursor: pointer;
 }
 
@@ -145,12 +154,13 @@ main {
   backface-visibility: hidden;
   font-size: 30px;
   line-height: 100px;
+  border-radius: 5px;
 }
 .front {
-  background-color: yellow;
+  background: linear-gradient(to top, #ffb75e, #ed8f03);
 }
 .back {
-  background-color: green;
+  background: linear-gradient(to top, #76b852, #8dc26f);
   transform: rotateY( 180deg );
 }
 .card.flipped {
@@ -160,7 +170,8 @@ main {
   pointer-events: none;
 }
 .match {
-  border: 3px solid red;
+  box-shadow: inset 0 0 20px 10px rgba(255,255,255,0.5);
   color: white;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
   pointer-events: none;
 }
