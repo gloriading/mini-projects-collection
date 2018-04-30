@@ -19,6 +19,9 @@
 <!-- button       -->
       <div class="control">
         <button id="start">start</button>
+        <div class="counter-display">
+          <p># of moves: <span class="counter"> 0 </span></p>
+        </div>
       </div>
 <!-- row 1       -->
       <div class="row">
@@ -158,7 +161,9 @@
     const cardContents = document.querySelectorAll('.back');
     const startBtn = document.getElementById('start');
     const cards = document.querySelectorAll('.card');
+    const counterDisplay = document.querySelector('.counter');
     let openedCards = [];
+    let counter = 0;
 
 // when the game start
 // 1- shuffle the cards
@@ -177,8 +182,11 @@
       cards.forEach(function(card){
         card.classList.remove('flipped');
         card.classList.remove('disabled');
+        card.classList.remove('match');
       });
       openedCards =[];
+      counter = 0;
+      counterDisplay.innerHTML = counter;
     }
 
     function gameStart(){
@@ -214,6 +222,7 @@
   function handleOpen(card){
     openedCards.push(card);
     if( openedCards.length === 2 ){
+      moveCount();
       if( openedCards[0].getAttribute("id") === openedCards[1].getAttribute("id")){
         console.log('matched');
         matched();
@@ -252,6 +261,13 @@
       });
     },1000);
 
+  }
+
+  // keep track of number of moves
+  function moveCount(){
+    counter ++;
+    // console.log(counter);
+    counterDisplay.innerHTML = counter;
   }
 
   window.onload = gameStart();

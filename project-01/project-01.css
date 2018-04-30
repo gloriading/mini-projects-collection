@@ -58,8 +58,18 @@ main {
   justify-content: center;
   align-items: center;
 }
+.control {
+  display: flex;
+  justify-content: center;
+}
+.control .counter-display {
+  font-size: 20px;
+  display: inline-block;
+  margin-left: 10px;
+}
 .control button {
-  padding: 10px 40px;
+  padding: 5px 15px;
+  border-radius: 10%;
   margin-bottom: 5px;
   font-size: 20px;
   letter-spacing: 2px;
@@ -91,7 +101,7 @@ main {
   height: 100%;
   text-align:center;
   transform-style: preserve-3d;
-  transition: transform 0.3s cubic-bezier(.87,-.41,.19,1.44), color: 0.5s ease;
+  transition: transform 0.3s cubic-bezier(.87,-.41,.19,1.44);
   transition-delay: border 0.5s;
 }
 .card div {
