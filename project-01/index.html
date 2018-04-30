@@ -163,11 +163,13 @@
     const cards = document.querySelectorAll('.card');
     const counterDisplay = document.querySelector('.counter');
     let openedCards = [];
-    let counter = 0;
+    let counter = 0, winCounter = 0;
 
-// when the game start
+// when the game start:
 // 1- shuffle the cards
 // 2- restore the cards (cover the cards)
+// 3- clear the array
+// 4- clear the counter
     startBtn.addEventListener('click', gameStart);
 
     function shuffle(arr) {
@@ -187,6 +189,7 @@
       openedCards =[];
       counter = 0;
       counterDisplay.innerHTML = counter;
+      winCounter = 0;
     }
 
     function gameStart(){
@@ -224,10 +227,15 @@
     if( openedCards.length === 2 ){
       moveCount();
       if( openedCards[0].getAttribute("id") === openedCards[1].getAttribute("id")){
-        console.log('matched');
         matched();
+        winCount();
+        if(winCounter === 8){
+          setTimeout(function(){
+            showWin();
+            gameStart();
+          },1000);
+        }
       }else {
-        console.log('not matched');
         notMached();
       }
     }
@@ -266,8 +274,18 @@
   // keep track of number of moves
   function moveCount(){
     counter ++;
-    // console.log(counter);
     counterDisplay.innerHTML = counter;
+  }
+
+  // Handle Win
+
+
+  function winCount(){
+    winCounter ++;
+  }
+
+  function showWin(){
+    alert(`YEAH! It only took you ${counter} tries!`);
   }
 
   window.onload = gameStart();
