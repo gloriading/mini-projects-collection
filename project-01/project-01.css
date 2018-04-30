@@ -57,7 +57,9 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
+
 .control {
   display: flex;
   justify-content: center;
@@ -80,6 +82,37 @@ main {
   background-color: rgba(0,0,0,0.2);
   cursor: pointer;
 }
+
+.win-box {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  z-index: 99;
+  border-radius: 10px;
+  background-color: rgba(255, 77, 77, 0.8);
+  display: none;
+  padding: 30px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.win-box h2:first-of-type {
+  color: rgba(255, 250, 101, 0.8);
+}
+.win-box h2 {
+  margin-top: 40px;
+}
+.win-box .yes,
+.win-box .no {
+  padding: 10px;
+  border-bottom: 2px solid white;
+  margin-left: 5px;
+}
+.win-box .yes:hover,
+.win-box .no:hover {
+  background-color: rgba(255,255,255,0.2);
+  cursor:cell;
+}
+
 .row {
   margin-top: 5px;
   min-width: 420px;
