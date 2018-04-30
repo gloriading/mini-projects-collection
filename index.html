@@ -97,27 +97,42 @@
         font-family: 'Gaegu', arial;
         font-size: 2em;
       }
-      span.date {
-        color: rgba(245, 59, 87,1.0);
+      .current-project span {
+        color:rgba(245, 59, 87, 0.8);
       }
-      a.game-name {
-        color: rgba(44, 44, 84, 0.8);
-        position: relative;
+/*      past-projects      */
+    .past-projects {
+      width: 100%;
+      padding: 30px;
+      border-bottom: 3px solid rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    .past-projects h3 {
+      font-size: 1.3em;
+    }
+    a.game-name {
+      color: rgba(44, 44, 84, 0.8);
+      position: relative;
+    }
+    a.game-name:after {
+      content: '';
+      width: 0%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-bottom: 2px solid rgba(255, 211, 42, 1);
+      transition: 0.6s ease;
+    }
+    a:hover:after {
+      width: 100%;
+    }
+    .finished-date {
+      margin-left: 10px;
+      font-size: 0.6em;
+      color: rgba(0,0,0,0.7);
+    }
 
-      }
-      a.game-name:after {
-        content: '';
-        width: 0%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        border-top: 2px solid rgba(255, 211, 42, 1);
-        transition: 1s ease;
-      }
-      a:hover:after {
-        width: 100%;
-      }
     </style>
   </head>
   <body>
@@ -142,8 +157,22 @@
     <main>
       <div class="current-project">
         <h3>
-          Starting <span class="date">April 28, 2018.</span> I have been working on <a href="project-01/index.html" class="game-name">a memory game</a>
+          I am working on
+          <span>some kind of Colour Generator...</span>
         </h3>
+      </div>
+      <div class="past-projects">
+        <ul>
+          <li>
+            <h3>
+              <a href="project-01/index.html" class="game-name">
+                Memory Game
+              </a>
+                - Flip Cards to Pair
+                <span class="finished-date">2018.04.29</span>
+            </h3>
+          </li>
+        </ul>
       </div>
     </main>
   </body>
