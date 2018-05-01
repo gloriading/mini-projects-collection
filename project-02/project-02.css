@@ -69,6 +69,7 @@ button#getColour {
   display: block;
   padding: 10px 30px;
   font-size: 14px;
+  letter-spacing: 1px;
   border: 1px solid deeppink;
   color: deeppink;
   outline: none;
@@ -77,9 +78,6 @@ button#getColour:hover {
   background-color: deeppink;
   color: white;
   cursor: pointer;
-}
-button#getColour:active {
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 .rand-colours {
   width: 300px;
@@ -95,4 +93,40 @@ button#getColour:active {
   font-size: 14px;
   letter-spacing: 1px;
   text-align: center;
+  transition: 0.5s ease;
+}
+.colour-box:hover {
+  cursor: cell;
+}
+.chosen-colours {
+  padding: 20px;
+  width: 200px;
+  border: 1px dotted green;
+}
+.chosen-colours h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+button#clear {
+  display: block;
+  padding: 6px 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border: 1px solid deeppink;
+  color: deeppink;
+  outline: none;
+  margin-bottom: 10px;
+}
+button#clear:hover {
+  background-color: deeppink;
+  color: white;
+  cursor: pointer;
+}
+.chosen-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  transition: 0.5s ease;
 }

@@ -29,12 +29,25 @@
         <div class="colour-box"></div>
         <div class="colour-box"></div>
       </div>
+      <div class="chosen-colours">
+        <h3>Your choices:</h3>
+        <button id="clear">
+          clear
+        </button>
+        <div class="chosen-box"></div>
+        <div class="chosen-box"></div>
+        <div class="chosen-box"></div>
+        <div class="chosen-box"></div>
+      </div>
     </main>
 
   <script>
   const btn = document.getElementById('getColour');
+  const clearBtn = document.getElementById('clear');
   const divs = document.querySelectorAll('.colour-box');
+  const chosenDivs = document.querySelectorAll('.chosen-box');
 
+  // console.log(chosenDivs[0].id == false);
   let result;
 
   function random(){
@@ -46,6 +59,9 @@
   function randomOpacity(){
     let number;
     number = Math.random().toFixed(2);
+    if(number < 0.2){
+      number = Math.random().toFixed(2);
+    }
     return number;
   }
 
@@ -61,6 +77,29 @@
       div.innerHTML = temp;
     });
   });
+
+  // Choose colours
+  divs.forEach(function(div){
+    div.addEventListener('click',function(e){
+      let temp = this.innerHTML
+      for(let i=0; i < chosenDivs.length; i++){
+        if(chosenDivs[i].id == false){
+          chosenDivs[i].id = temp;
+          chosenDivs[i].style.backgroundColor = temp;
+          break;
+        }
+      }
+    });
+  });
+
+  // clear chosen colours
+  clearBtn.addEventListener('click',function(e){
+    chosenDivs.forEach(function(chosenDiv){
+        chosenDiv.removeAttribute('id');
+        chosenDiv.removeAttribute('style');
+    });
+  });
+
 
   </script>
   </body>
