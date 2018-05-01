@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
 
+:root {
+  --bgclock: rgba(255,255,255,1);
+  --clockshape: 100%;
+}
+
 html,body {
   padding: 0;
   margin: 0;
@@ -56,3 +61,113 @@ a {
   }
 
 /*      main      */
+  main {
+    padding: 10px 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .clock-container {
+    padding: 30px;
+    width: 500px;
+    height: 400px;
+    border: 1px dotted blue;
+  }
+  .clock {
+    background-color: var(--bgclock);
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(44, 44, 84,1.0);
+    border-radius: var(--clockshape);
+    position: relative;
+    transform: translateY(-3px);
+  }
+  .hand.second {
+    width: 120px;
+    height: 2px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 148px;
+    left: 28px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+  }
+  .hand.minute {
+    width: 120px;
+    height: 4px;
+    background: rgba(0,0,0,0.8);;
+    position: absolute;
+    top: 146px;
+    left: 28px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+  }
+  .hand.hour {
+    width: 100px;
+    height: 6px;
+    background: rgba(0,0,0,0.8);
+    position: absolute;
+    top: 146px;
+    left: 48px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+  }
+  /* .clock:hover .hand.hour {
+    transform: rotate(360deg);
+  } */
+  .center {
+    position: absolute;
+    left:0; right:0; top:0; bottom:0;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: rgba(44, 44, 84,1.0);
+    margin: auto;
+  }
+
+.twelve {
+   position: absolute;
+   left: 0;
+   top: 0;
+   right: 0;
+   margin: 0 auto;
+   transform: translateY(-10px);
+   width: 5px;
+   height: 10px;
+   background: rgba(39, 60, 117,1.0);
+ }
+
+.six {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   margin: 0 auto;
+   transform: translateY(10px);
+   width: 5px;
+   height: 10px;
+   background: rgba(39, 60, 117,1.0);
+}
+
+.three {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   margin: auto 0;
+   transform: translateX(10px);
+   width: 10px;
+   height: 5px;
+   background: rgba(39, 60, 117,1.0);
+}
+
+.nine {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   margin: auto 0;
+   transform: translateX(-10px);
+   width: 10px;
+   height: 5px;
+   background: rgba(39, 60, 117,1.0);
+}
