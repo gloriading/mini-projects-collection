@@ -139,8 +139,12 @@ button#clear:hover {
   color: rgba(0,0,0,0.8);
   padding: 2px 5px;
   transition: 0.3s ease;
+  position: relative
 }
 .copy:hover {
   cursor: pointer;
   transform: translateY(-5px);
+}
+.copy:after {
+  
 }

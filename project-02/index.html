@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Gloria | Colour Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="project-02.css">
 
@@ -63,6 +64,7 @@
   const clearBtn = document.getElementById('clear');
   const divs = document.querySelectorAll('.colour-box');
   const chosenDivs = document.querySelectorAll('.chosen-box');
+  const copyBtns = document.querySelectorAll('.copy');
 
   let result;
 
@@ -106,18 +108,37 @@
             break;
           }
         }
+        for(let i=0; i < copyBtns.length; i++){
+          if(copyBtns[i].hasAttribute('data-clipboard-text') == false){
+            copyBtns[i].setAttribute('data-clipboard-text', temp);
+            break;
+          }
+        }
       }
     });
   });
 
-  // clear chosen colours
+  // Clear chosen colours
   clearBtn.addEventListener('click',function(e){
+
     chosenDivs.forEach(function(chosenDiv){
         chosenDiv.removeAttribute('id');
         chosenDiv.removeAttribute('style');
     });
+    copyBtns.forEach(function(copyBtn){
+        copyBtn.removeAttribute('data-clipboard-text');
+    });
+
   });
 
+  // Handle copy ( clipboard.js )
+  var clipboard = new ClipboardJS('.copy');
+  clipboard.on('success', function(e) {
+      console.log(e);
+  });
+  clipboard.on('error', function(e) {
+      console.log(e);
+  });
 
   </script>
   </body>
