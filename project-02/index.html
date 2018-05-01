@@ -28,6 +28,10 @@
         <div class="colour-box"></div>
         <div class="colour-box"></div>
         <div class="colour-box"></div>
+        <div class="colour-box"></div>
+        <div class="colour-box"></div>
+        <div class="colour-box"></div>
+        <div class="colour-box"></div>
       </div>
       <div class="chosen-colours">
         <h3>Your choices:</h3>
@@ -74,14 +78,14 @@
     divs.forEach(function(div){
       let temp = colorGenerator();
       div.style.backgroundColor = temp;
-      div.innerHTML = temp;
+      div.id = temp;
     });
   });
 
   // Choose colours
   divs.forEach(function(div){
     div.addEventListener('click',function(e){
-      let temp = this.innerHTML
+      let temp = this.getAttribute('id');
       for(let i=0; i < chosenDivs.length; i++){
         if(chosenDivs[i].id == false){
           chosenDivs[i].id = temp;
