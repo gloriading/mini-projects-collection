@@ -42,18 +42,22 @@
         <div class="chosen-container">
           <div class="chosen-box"></div>
           <div class="copy"> copy</div>
+          <div class="copied-notice">copied</div>
         </div>
         <div class="chosen-container">
           <div class="chosen-box"></div>
           <div class="copy"> copy</div>
+          <div class="copied-notice">copied</div>
         </div>
         <div class="chosen-container">
           <div class="chosen-box"></div>
           <div class="copy"> copy</div>
+          <div class="copied-notice">copied</div>
         </div>
         <div class="chosen-container">
           <div class="chosen-box"></div>
           <div class="copy"> copy</div>
+          <div class="copied-notice">copied</div>
         </div>
 
       </div>
@@ -65,8 +69,8 @@
   const divs = document.querySelectorAll('.colour-box');
   const chosenDivs = document.querySelectorAll('.chosen-box');
   const copyBtns = document.querySelectorAll('.copy');
+  const copyNotices = document.querySelectorAll('.copied-notice');
 
-  let result;
 
   function random(){
     let number;
@@ -84,6 +88,7 @@
   }
 
   function colorGenerator(){
+    let result;
     result = `rgba(${random()}, ${random()}, ${random()}, ${randomOpacity()})`;
     return result;
   }
@@ -125,8 +130,13 @@
         chosenDiv.removeAttribute('id');
         chosenDiv.removeAttribute('style');
     });
+
     copyBtns.forEach(function(copyBtn){
         copyBtn.removeAttribute('data-clipboard-text');
+    });
+
+    copyNotices.forEach(function(copyNotice){
+      copyNotice.style.opacity = "0";
     });
 
   });
@@ -134,7 +144,8 @@
   // Handle copy ( clipboard.js )
   var clipboard = new ClipboardJS('.copy');
   clipboard.on('success', function(e) {
-      console.log(e);
+      // Show "copied" after copying
+      e.trigger.nextElementSibling.style.opacity = "0.7";
   });
   clipboard.on('error', function(e) {
       console.log(e);
