@@ -31,10 +31,21 @@
           <div class="nine"></div>
         </div>
       </div>
+      <div class="control-container">
+        <h3>clock face colour:</h3>
+        <div class="colours">
+          <div class="block" id="softBlue"></div>
+          <div class="block" id="apple"></div>
+          <div class="block" id="rosy"></div>
+          <div class="block" id="sky"></div>
+          <div class="block" id="lightPurple"></div>
+        </div>
+      </div>
     </main>
 
 
 <script>
+// Show Current Time
   const secondHand = document.querySelector('.second');
   const minuteHand = document.querySelector('.minute');
   const hourHand = document.querySelector('.hour');
@@ -60,6 +71,10 @@
     hourHand.style.transform = `rotate(${hourDegree}deg)`;
   }
   setInterval(setTime,1000);
+
+// Change clock colour 
+
+
 
 </script>
   </body>
