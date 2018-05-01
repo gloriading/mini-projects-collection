@@ -86,11 +86,13 @@
   divs.forEach(function(div){
     div.addEventListener('click',function(e){
       let temp = this.getAttribute('id');
-      for(let i=0; i < chosenDivs.length; i++){
-        if(chosenDivs[i].id == false){
-          chosenDivs[i].id = temp;
-          chosenDivs[i].style.backgroundColor = temp;
-          break;
+      if(temp !== null){
+        for(let i=0; i < chosenDivs.length; i++){
+          if(chosenDivs[i].id == false){
+            chosenDivs[i].id = temp;
+            chosenDivs[i].style.backgroundColor = temp;
+            break;
+          }
         }
       }
     });
