@@ -38,10 +38,23 @@
         <button id="clear">
           clear
         </button>
-        <div class="chosen-box"></div>
-        <div class="chosen-box"></div>
-        <div class="chosen-box"></div>
-        <div class="chosen-box"></div>
+        <div class="chosen-container">
+          <div class="chosen-box"></div>
+          <div class="copy"> copy</div>
+        </div>
+        <div class="chosen-container">
+          <div class="chosen-box"></div>
+          <div class="copy"> copy</div>
+        </div>
+        <div class="chosen-container">
+          <div class="chosen-box"></div>
+          <div class="copy"> copy</div>
+        </div>
+        <div class="chosen-container">
+          <div class="chosen-box"></div>
+          <div class="copy"> copy</div>
+        </div>
+
       </div>
     </main>
 
@@ -51,7 +64,6 @@
   const divs = document.querySelectorAll('.colour-box');
   const chosenDivs = document.querySelectorAll('.chosen-box');
 
-  // console.log(chosenDivs[0].id == false);
   let result;
 
   function random(){

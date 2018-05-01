@@ -62,7 +62,6 @@ main {
 }
 .control {
   width: 200px;
-  border: 1px dotted red;
   padding: 20px;
 }
 button#getColour {
@@ -81,7 +80,6 @@ button#getColour:hover {
 }
 .rand-colours {
   width: 300px;
-  border: 1px dotted blue;
   padding: 20px;
 }
 .colour-box {
@@ -100,7 +98,6 @@ button#getColour:hover {
 .chosen-colours {
   padding: 20px;
   width: 200px;
-  border: 1px dotted green;
 }
 .chosen-colours h3 {
   margin-top: 0;
@@ -121,11 +118,29 @@ button#clear:hover {
   color: white;
   cursor: pointer;
 }
+.chosen-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .chosen-box {
   width: 40px;
   height: 40px;
+  margin-top: 10px;
   border-radius: 50%;
   margin-bottom: 10px;
   border: 1px solid black;
   transition: 0.5s ease;
+}
+.copy {
+  display: inline-block;
+  border-top: 1px solid rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  color: rgba(0,0,0,0.8);
+  padding: 2px 5px;
+  transition: 0.3s ease;
+}
+.copy:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
 }
