@@ -84,7 +84,7 @@ a {
   .hand.second {
     width: 120px;
     height: 2px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(179, 57, 57, 0.8);
     position: absolute;
     top: 148px;
     left: 28px;
