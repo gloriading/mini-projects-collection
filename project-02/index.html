@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="project-02.css">
-
+    <script src="project-02.js" defer></script>
   </head>
   <body>
     <nav>
@@ -20,11 +20,14 @@
     </header>
     <main>
       <div class="control">
+        <h3>1. Click to generate</h3>
         <button id="getColour">
           Generate
         </button>
       </div>
       <div class="rand-colours">
+        <h3>2. Click to choose</h3>
+        <h4>( Don't like them? Generate again! )</h4>
         <div class="colour-box"></div>
         <div class="colour-box"></div>
         <div class="colour-box"></div>
@@ -35,122 +38,33 @@
         <div class="colour-box"></div>
       </div>
       <div class="chosen-colours">
-        <h3>Your choices:</h3>
+        <h3>3. Copy away</h3>
+        <div class="chosen-container">
+          <div class="chosen-box"></div>
+          <div class="copy"> copy</div>
+          <div class="copied-notice">copied</div>
+        </div>
+        <div class="chosen-container">
+          <div class="chosen-box"></div>
+          <div class="copy"> copy</div>
+          <div class="copied-notice">copied</div>
+        </div>
+        <div class="chosen-container">
+          <div class="chosen-box"></div>
+          <div class="copy"> copy</div>
+          <div class="copied-notice">copied</div>
+        </div>
+        <div class="chosen-container">
+          <div class="chosen-box"></div>
+          <div class="copy"> copy</div>
+          <div class="copied-notice">copied</div>
+        </div>
         <button id="clear">
-          clear
+          Clear
         </button>
-        <div class="chosen-container">
-          <div class="chosen-box"></div>
-          <div class="copy"> copy</div>
-          <div class="copied-notice">copied</div>
-        </div>
-        <div class="chosen-container">
-          <div class="chosen-box"></div>
-          <div class="copy"> copy</div>
-          <div class="copied-notice">copied</div>
-        </div>
-        <div class="chosen-container">
-          <div class="chosen-box"></div>
-          <div class="copy"> copy</div>
-          <div class="copied-notice">copied</div>
-        </div>
-        <div class="chosen-container">
-          <div class="chosen-box"></div>
-          <div class="copy"> copy</div>
-          <div class="copied-notice">copied</div>
-        </div>
-
       </div>
     </main>
 
-  <script>
-  const btn = document.getElementById('getColour');
-  const clearBtn = document.getElementById('clear');
-  const divs = document.querySelectorAll('.colour-box');
-  const chosenDivs = document.querySelectorAll('.chosen-box');
-  const copyBtns = document.querySelectorAll('.copy');
-  const copyNotices = document.querySelectorAll('.copied-notice');
 
-
-  function random(){
-    let number;
-    number = Math.floor( Math.random() * 255 );
-    return number;
-  }
-
-  function randomOpacity(){
-    let number;
-    number = Math.random().toFixed(2);
-    if(number < 0.2){
-      number = Math.random().toFixed(2);
-    }
-    return number;
-  }
-
-  function colorGenerator(){
-    let result;
-    result = `rgba(${random()}, ${random()}, ${random()}, ${randomOpacity()})`;
-    return result;
-  }
-
-  btn.addEventListener('click',function(){
-    divs.forEach(function(div){
-      let temp = colorGenerator();
-      div.style.backgroundColor = temp;
-      div.id = temp;
-    });
-  });
-
-  // Choose colours
-  divs.forEach(function(div){
-    div.addEventListener('click',function(e){
-      let temp = this.getAttribute('id');
-      if(temp !== null){
-        for(let i=0; i < chosenDivs.length; i++){
-          if(chosenDivs[i].id == false){
-            chosenDivs[i].id = temp;
-            chosenDivs[i].style.backgroundColor = temp;
-            break;
-          }
-        }
-        for(let i=0; i < copyBtns.length; i++){
-          if(copyBtns[i].hasAttribute('data-clipboard-text') == false){
-            copyBtns[i].setAttribute('data-clipboard-text', temp);
-            break;
-          }
-        }
-      }
-    });
-  });
-
-  // Clear chosen colours
-  clearBtn.addEventListener('click',function(e){
-
-    chosenDivs.forEach(function(chosenDiv){
-        chosenDiv.removeAttribute('id');
-        chosenDiv.removeAttribute('style');
-    });
-
-    copyBtns.forEach(function(copyBtn){
-        copyBtn.removeAttribute('data-clipboard-text');
-    });
-
-    copyNotices.forEach(function(copyNotice){
-      copyNotice.style.opacity = "0";
-    });
-
-  });
-
-  // Handle copy ( clipboard.js )
-  var clipboard = new ClipboardJS('.copy');
-  clipboard.on('success', function(e) {
-      // Show "copied" after copying
-      e.trigger.nextElementSibling.style.opacity = "0.7";
-  });
-  clipboard.on('error', function(e) {
-      console.log(e);
-  });
-
-  </script>
   </body>
 </html>
