@@ -127,6 +127,7 @@
 // Change clock colour
   const clock = document.querySelector('.clock');
   const colorBlocks = document.querySelectorAll('.block');
+  const digitalBoxes = document.querySelectorAll('.box');
 
   colorBlocks.forEach(colorBlock => colorBlock.addEventListener('click',function(e){
     let colour = this.style.backgroundColor;
@@ -135,8 +136,12 @@
       ${colour},
       #ffffff
     )`;
+
+    // digital
+    digitalBoxes.forEach(digitalBox=>digitalBox.style.backgroundColor = colour);
+
     })
-  )
+  );
 
 
 </script>
