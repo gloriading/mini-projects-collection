@@ -30,6 +30,14 @@
           <div class="three"></div>
           <div class="nine"></div>
         </div>
+        <div class="digital">
+          <div class="box" id="hourOne"></div>
+          <div class="box" id="hourTwo"></div> <span>H</span>
+          <div class="box" id="minOne"></div>
+          <div class="box" id="minTwo"></div> <span>M</span>
+          <div class="box" id="secOne"></div>
+          <div class="box" id="secTwo"></div> <span>S</span>
+        </div>
       </div>
       <div class="control-container">
         <h3>Clock face colour:</h3>
@@ -52,6 +60,14 @@
 
 
 <script>
+// Select digital clock box
+  const hourOne = document.getElementById('hourOne');
+  const hourTwo = document.getElementById('hourTwo');
+  const minOne = document.getElementById('minOne');
+  const minTwo = document.getElementById('minTwo');
+  const secOne = document.getElementById('secOne');
+  const secTwo = document.getElementById('secTwo');
+
 // Show Current Time
   const secondHand = document.querySelector('.second');
   const minuteHand = document.querySelector('.minute');
@@ -59,6 +75,7 @@
 
   function setTime(){
     let now, seconds, secondDegree, minutes, minuteDegree, hours, hourDegree;
+
     now = new Date();
     seconds = now.getSeconds();
     secondDegree = (seconds / 60)* 360 + 90;
@@ -76,6 +93,34 @@
     }
 
     hourHand.style.transform = `rotate(${hourDegree}deg)`;
+
+    // For digital display
+    let secStr, minStr, hourStr;
+    secStr = seconds + '';
+    if(secStr.length == 1){
+      secTwo.innerHTML = secStr;
+      secOne.innerHTML = '0';
+    }else{
+      secTwo.innerHTML = secStr[1];
+      secOne.innerHTML = secStr[0];
+    }
+    minStr = minutes + '';
+    if(minStr.length == 1){
+      minTwo.innerHTML = minStr;
+      minOne.innerHTML = '0';
+    }else{
+      minTwo.innerHTML = minStr[1];
+      minOne.innerHTML = minStr[0];
+    }
+    hourStr = hours + '';
+    if(hourStr.length == 1){
+      hourTwo.innerHTML = hourStr;
+      hourOne.innerHTML = '0';
+    }else{
+      hourTwo.innerHTML = hourStr[1];
+      hourOne.innerHTML = hourStr[0];
+    }
+
   }
   setInterval(setTime,1000);
 
