@@ -32,13 +32,20 @@
         </div>
       </div>
       <div class="control-container">
-        <h3>clock face colour:</h3>
+        <h3>Clock face colour:</h3>
         <div class="colours">
-          <div class="block" id="softBlue"></div>
-          <div class="block" id="apple"></div>
-          <div class="block" id="rosy"></div>
-          <div class="block" id="sky"></div>
-          <div class="block" id="lightPurple"></div>
+          <div class="block"
+          style="background-color:rgba(119, 139, 235, 0.8);"></div>
+          <div class="block"
+          style="background-color:rgba(234, 134, 133, 0.8);"></div>
+          <div class="block"
+          style="background-color:rgba(247, 215, 148, 0.8);"></div>
+          <div class="block"
+          style="background-color:rgba(51, 217, 178, 0.8);"></div>
+          <div class="block"
+          style="background-color:rgba(153, 128, 250, 0.8);"></div>
+          <div class="block"
+          style="background-color:rgba(255, 255, 255, 0.8);"></div>
         </div>
       </div>
     </main>
@@ -72,8 +79,19 @@
   }
   setInterval(setTime,1000);
 
-// Change clock colour 
+// Change clock colour
+  const clock = document.querySelector('.clock');
+  const colorBlocks = document.querySelectorAll('.block');
 
+  colorBlocks.forEach(colorBlock => colorBlock.addEventListener('click',function(e){
+    let colour = this.style.backgroundColor;
+    clock.style.backgroundImage = `
+    radial-gradient(
+      ${colour},
+      #ffffff
+    )`;
+    })
+  )
 
 
 </script>

@@ -169,11 +169,15 @@ a {
    background: rgba(39, 60, 117,1.0);
 }
 
+/*      control      */
 .control-container {
   padding: 40px;
   width: 400px;
   height: 400px;
   border: 1px dotted red;
+}
+.control-container h3 {
+  letter-spacing: 1px;
 }
 .control-container .colours {
   padding: 10px;
@@ -184,10 +188,13 @@ a {
 .block {
   width: 40px;
   height: 40px;
-  margin: 5px;
+  margin: 3px;
+  transition: 0.2s ease;
 }
-#softBlue { background-color:rgba(119, 139, 235, 0.8); }
-#apple { background-color:rgba(234, 134, 133, 0.8); }
-#rosy { background-color:rgba(247, 215, 148, 0.8); }
-#sky { background-color:rgba(51, 217, 178, 0.8); }
-#lightPurple { background-color:rgba(153, 128, 250, 0.8); }
+.block:hover {
+  cursor: cell;
+  transform: rotate(10deg);
+}
+.block:last-of-type {
+  border: 1px solid rgba(0,0,0,0.2);
+}
