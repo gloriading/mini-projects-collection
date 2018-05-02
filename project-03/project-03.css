@@ -66,7 +66,6 @@ a {
     padding: 40px;
     width: 400px;
     height: 400px;
-    border: 1px dotted blue;
   }
   .clock {
     background-color: rgba(255,255,255,0.5);
@@ -79,7 +78,6 @@ a {
     position: relative;
     transform: translateY(-3px);
     transition: 0.5s ease;
-    display: none;
   }
   .hand.second {
     width: 120px;
@@ -175,7 +173,6 @@ a {
   padding: 40px;
   width: 400px;
   height: 400px;
-  border: 1px dotted red;
 }
 .control-container h3 {
   letter-spacing: 1px;
@@ -224,4 +221,37 @@ a {
 
 .digital span {
   margin-left: 5px;
+}
+
+.hide {
+  display:none;
+}
+
+.switch-container {
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+.switch-container span {
+  padding: 10px;
+  letter-spacing: 1px;
+  margin: 5px;
+}
+.clock-switch {
+  position: relative;
+  height: 50px;
+  width: 100px;
+  border: 3px solid rgba(0,0,0,0.4);
+}
+.inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 2;
+  cursor: pointer;
+  transition: 0.5s ease;
 }

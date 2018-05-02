@@ -30,7 +30,7 @@
           <div class="three"></div>
           <div class="nine"></div>
         </div>
-        <div class="digital">
+        <div class="digital hide">
           <div class="box" id="hourOne"></div>
           <div class="box" id="hourTwo"></div> <span>H</span>
           <div class="box" id="minOne"></div>
@@ -54,6 +54,14 @@
           style="background-color:rgba(153, 128, 250, 0.8);"></div>
           <div class="block"
           style="background-color:rgba(255, 255, 255, 0.8);"></div>
+        </div>
+
+        <div class="switch-container">
+          <span> Analog </span>
+          <div class="clock-switch">
+            <div class="inner"></div>
+          </div>
+          <span> Digital </span>
         </div>
       </div>
     </main>
@@ -121,11 +129,12 @@
       hourOne.innerHTML = hourStr[0];
     }
 
-  }
+  };
   setInterval(setTime,1000);
 
 // Change clock colour
   const clock = document.querySelector('.clock');
+  const digitalClock = document.querySelector('.digital');
   const colorBlocks = document.querySelectorAll('.block');
   const digitalBoxes = document.querySelectorAll('.box');
 
@@ -137,12 +146,26 @@
       #ffffff
     )`;
 
-    // digital
+    // Change background color of digital clock
     digitalBoxes.forEach(digitalBox=>digitalBox.style.backgroundColor = colour);
 
-    })
-  );
+  }));
 
+// Switch between analog and digital clock
+  const clockSwitch = document.querySelector('.clock-switch');
+  const inner = document.querySelector('.inner');
+
+  clockSwitch.addEventListener('click',function(e){
+    clock.classList.toggle('hide');
+    digitalClock.classList.toggle('hide');
+
+    if(inner.style.left != '50%'){
+      inner.style.left = '50%';
+    }else{
+      inner.style.left = '0%';
+    }
+
+  });
 
 </script>
   </body>
