@@ -57,3 +57,101 @@ a {
   }
 
 /*      main      */
+main {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container {
+  display:flex;
+  flex-wrap: wrap;
+}
+.square {
+  position: relative;
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+.dot {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  border-radius: 100%;
+}
+.one .dot {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.two .dot:first-of-type,
+.three .dot:first-of-type,
+.four .dot:nth-of-type(2),
+.five .dot:nth-of-type(2),
+.six .dot:nth-of-type(2){
+  left: 10%;
+  bottom: 10%;
+}
+.two .dot:last-of-type,
+.three .dot:last-of-type,
+.four .dot:nth-of-type(4),
+.five .dot:nth-of-type(4),
+.six .dot:nth-of-type(4){
+  right: 10%;
+  top: 10%;
+}
+.three .dot:nth-of-type(2),
+.five .dot:nth-of-type(5){
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.four .dot:nth-of-type(1),
+.five .dot:nth-of-type(1),
+.six .dot:nth-of-type(1){
+  top: 10%;
+  left: 10%;
+}
+.four .dot:nth-of-type(3),
+.five .dot:nth-of-type(3),
+.six .dot:nth-of-type(3){
+  bottom: 10%;
+  right: 10%;
+}
+.six .dot:nth-of-type(5) {
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.six .dot:nth-of-type(6) {
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.control {
+  margin-top: 20px;
+  padding: 20px;
+}
+.choose {
+  padding: 10px 30px;
+  letter-spacing: 1px;
+  font-size: 16px;
+  border-radius: 50px;
+  border: 2px dotted gray;
+  outline:none;
+}
+.choose:hover {
+  border: 2px solid gray;
+  cursor: pointer;
+}
+.choose:active {
+  color: deeppink;
+}
