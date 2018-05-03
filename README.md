@@ -3,3 +3,4 @@
 ### I am going to create several more mini projects mainly using HTML, CSS, and JavaScript .✌️
 
 #### 😀 Please visit the site: https://gloriading.github.io/mini-projects-collection/
+![Alt text](collection-index.png?raw=true "project collection")
