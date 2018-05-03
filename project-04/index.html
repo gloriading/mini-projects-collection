@@ -63,5 +63,27 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
       </div>
     </main>
 
+    <script>
+    const dice = document.querySelectorAll('.square');
+    const btn = document.querySelector('.choose');
+
+    btn.addEventListener('click',function(e){
+
+    dice.forEach(function(ele){
+      ele.style.backgroundColor = 'white';
+      ele.classList.remove('animated');
+      ele.classList.remove('wobble');
+    });
+
+    setTimeout(function(){
+      let index = Math.floor(( Math.random() * 6 ));
+      dice[index].style.backgroundColor = 'deeppink';
+
+      dice[index].classList.add('animated');
+      dice[index].classList.add('wobble');
+    },100);
+
+    });
+    </script>
   </body>
 </html>
