@@ -20,6 +20,10 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
       </h2>
     </header>
     <main>
+      <div class="switch">
+        <div class="method activated"> A </div>
+        <div class="method"> B </div>
+      </div>
       <div class="container">
         <div class="square one">
           <div class="dot"></div>
@@ -64,6 +68,16 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     </main>
 
     <script>
+    // Switch
+    const methods = document.querySelectorAll('.method');
+    methods.forEach(function(method){
+      method.addEventListener('click',function(e){
+        methods.forEach(method=> method.classList.remove('activated'));
+        this.classList.toggle('activated');
+      });
+    });
+
+    // Dice Display One
     const dice = document.querySelectorAll('.square');
     const btn = document.querySelector('.choose');
 
