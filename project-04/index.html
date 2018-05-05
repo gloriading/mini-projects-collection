@@ -25,7 +25,7 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
         <div class="method"> B </div>
       </div>
 
-      <div class="method-a">
+      <div class="method-a hide">
         <div class="container">
         </div>
 
@@ -38,7 +38,12 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 
       </div>
       <div class="method-b">
-
+        <div class="container-b">
+        </div>
+        <button class="choose-b">
+          choose
+          <span><i class="far fa-hand-paper fa-3x"></i></span>
+        </button>
       </div>
     </main>
 
@@ -122,6 +127,38 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
       dice[index].classList.add('animated');
       dice[index].classList.add('wobble');
     },100);
+
+    });
+    // method b -----------------------------------------
+
+    const btnB = document.querySelector('.choose-b');
+    const displayArea = document.querySelector('.container-b');
+
+    // Initial state
+    const emptyDice = document.createElement('div');
+    emptyDice.classList.add('square');
+    displayArea.appendChild(emptyDice);
+
+    btnB.addEventListener('click',function(){
+      // Empty whatever it was there
+      displayArea.innerHTML = '';
+      setTimeout(function(){
+        // Restore to initial State
+        displayArea.appendChild(emptyDice);
+        // Make emptyDice to roll
+        emptyDice.classList.add('rolling-effect');
+      },100);
+
+      // Randomly delect a dice
+      setTimeout(function(){
+        displayArea.innerHTML = '';
+        let index = Math.floor(( Math.random() * 6 ));
+        let diceArr = [diceOne, diceTwo, diceThree, diceFour, diceFive, diceSix];
+        // Add animation and append to the display area
+        diceArr[index].classList.add('animated');
+        diceArr[index].classList.add('flipInX');
+        displayArea.appendChild(diceArr[index].cloneNode(true));
+      },3000);
 
     });
     </script>
