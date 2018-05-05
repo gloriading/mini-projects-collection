@@ -21,11 +21,11 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     </header>
     <main>
       <div class="switch">
-        <div class="method activated"> A </div>
-        <div class="method"> B </div>
+        <div class="method activated" id="methodA"> A </div>
+        <div class="method" id="methodB"> B </div>
       </div>
 
-      <div class="method-a hide">
+      <div class="method-a">
         <div class="container">
         </div>
 
@@ -37,7 +37,7 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
         </div>
 
       </div>
-      <div class="method-b">
+      <div class="method-b hide">
         <div class="container-b">
         </div>
         <button class="choose-b">
@@ -49,12 +49,21 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 
     <script>
     // Switch
-    const methods = document.querySelectorAll('.method');
-    methods.forEach(function(method){
-      method.addEventListener('click',function(e){
-        methods.forEach(method=> method.classList.remove('activated'));
-        this.classList.toggle('activated');
-      });
+    const methodA = document.getElementById('methodA');
+    const methodB = document.getElementById('methodB');
+    const methodAcontainer = document.querySelector('.method-a');
+    const methodBcontainer = document.querySelector('.method-b');
+    methodA.addEventListener('click',function(){
+      this.classList.add('activated');
+      methodAcontainer.classList.remove('hide');
+      methodB.classList.remove('activated');
+      methodBcontainer.classList.add('hide');
+    });
+    methodB.addEventListener('click',function(){
+      this.classList.add('activated');
+      methodBcontainer.classList.remove('hide');
+      methodA.classList.remove('activated');
+      methodAcontainer.classList.add('hide');
     });
 
     // JS to generate dice

@@ -210,7 +210,7 @@ main {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 /*      method 2      */
