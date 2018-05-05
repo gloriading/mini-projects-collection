@@ -103,6 +103,12 @@ main {
 }
 
 /*      method 1      */
+.method-a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
   display:flex;
   flex-wrap: wrap;
@@ -118,8 +124,8 @@ main {
 }
 .dot {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   background-color: black;
   border-radius: 100%;
 }
@@ -181,15 +187,30 @@ main {
 .choose {
   padding: 10px 30px;
   letter-spacing: 1px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
   border-radius: 50px;
-  border: 2px dotted gray;
+  border: 2px dotted rgba(255, 77, 77, 0.5);;
   outline:none;
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+}
+.choose span {
+  position: absolute;
+  right: 15px;
+  top: 2px;
+  z-index: -1;
+  color: rgba(255, 77, 77, 0.2);
+  transform: rotate(-10deg);
 }
 .choose:hover {
-  border: 2px solid gray;
+  border: 2px solid rgba(255, 77, 77, 0.5);;
   cursor: pointer;
 }
 .choose:active {
   color: deeppink;
+}
+.hide {
+  display: none;
 }
