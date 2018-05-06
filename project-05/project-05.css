@@ -192,3 +192,120 @@ main {
 .box:hover span {
   transform: translateX(0);
 }
+
+/*     second     */
+
+.box-two {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid whitesmoke;
+  perspective: 600px;
+  background-color: rgba(239, 87, 119, 0.6);
+}
+
+.circle-two, .circle-three, .circle-four, .circle-five {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform: translateX(0) rotateZ(0deg);
+  border-style: solid;
+  border-width: 5px;
+  border-color: white #ef5350 white #ef5350;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 2s ease;
+}
+.circle-three {
+  bottom:0;
+  right:0;
+  transform: translateX(0) rotateZ(0deg);
+}
+.circle-four {
+  bottom: 25%;
+  right:0;
+  transition-delay: 0.5s;
+  transform: translateX(0) rotateZ(0deg);
+}
+.circle-five {
+  top: 25%;
+  left:0;
+  transition-delay: 0.5s;
+  transform: translateX(0) rotateZ(0deg);
+}
+.inner-icon-two {
+  color: #ef5350;
+  position: absolute;
+  margin: 50%;
+  transform: translate(-50%, -50%) ;
+}
+.center-heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+  color:rgba(239, 87, 119, 0.6);
+}
+.center-heart span.thanks {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #f0f1e3;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-family: Arial, "Times New Roman";
+  font-weight:700;
+  background-color: #ad1457;
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255,255,255,0.45);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+  opacity: 0;
+  transition-delay: 1s;
+  transition: 2s ease;
+}
+.center-heart span.continue {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, 60%);
+  color: rgba(255,255,255,0.65);
+  opacity: 0;
+  transition-delay: 1s;
+  transition: 2s ease;
+}
+.fa-heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 2s cubic-bezier(.24,.93,.83,.67);
+}
+.box-two:hover .circle-two {
+  transform: translateX(600%) rotateZ(480deg);
+}
+.box-two:hover .circle-three {
+  transform: translateX(-600%) rotateZ(-480deg);
+}
+.box-two:hover .circle-four {
+  transform: translateX(-600%) rotateZ(-480deg);
+}
+.box-two:hover .circle-five {
+  transform: translateX(600%) rotateZ(480deg);
+}
+.box-two:hover .fa-heart {
+  transform: scale(6) translate(-10%, -10%);
+}
+.box-two:hover .thanks, .box-two:hover .continue {
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+/*     third     */
