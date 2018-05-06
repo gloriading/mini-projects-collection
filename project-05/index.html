@@ -20,7 +20,7 @@
     <main>
       <div class="card-container">
 
-        <!-- <div class="box first-page">
+        <div class="box first-page">
           <div class="layer-one">
           </div>
           <div class="layer-two">
@@ -31,7 +31,7 @@
             <hr class="line-three">
             <hr class="line-four">
           </div>
-        </div> -->
+        </div>
 
         <div class="box-two second-page">
 
@@ -50,7 +50,7 @@
             <div class="center-heart">
               <i class="fas fa-heart fa-2x"></i>
               <span class="thanks"> thanks </span>
-              <span class="continue">click to continue</span>
+              <span class="continue" id="clickTwo">click to continue</span>
             </div>
 
         </div>
@@ -58,5 +58,20 @@
 
       </div>
     </main>
+
+    <script>
+    // Switch pages
+        const btnOne = document.getElementById('clickOne');
+        const btnTwo = document.getElementById('clickTwo');
+        const pageOne = document.querySelector('.first-page');
+        const pageTwo = document.querySelector('.second-page');
+        pageTwo.classList.add('hide');
+
+        btnOne.addEventListener('click', function(){
+          console.log('here');
+          pageTwo.classList.remove('hide');
+          pageOne.classList.add('hide');
+        });
+    </script>
   </body>
 </html>
