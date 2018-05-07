@@ -20,7 +20,7 @@
     <main>
       <div class="card-container">
 
-        <!-- <div class="box first-page">
+        <div class="box first-page">
           <div class="layer-one">
           </div>
           <div class="layer-two">
@@ -53,7 +53,7 @@
               <span class="continue" id="clickTwo">click to continue</span>
             </div>
 
-        </div> -->
+        </div>
         <div class="box-three third-page">
           <div class="flower one"></div>
           <div class="flower two"></div>
@@ -65,11 +65,15 @@
           <div class="sentence part-two"> Mother's Day</div>
 
           <div class="bottom-cover">
-            <h3>2018 May</h3>
+            <h3>
+              2018 May
+              <span class="restart" id="backToStart"> restart </span>
+            </h3>
             <div class="face">
               <span>hover me</span>
               <div class="smile"></div>
             </div>
+
           </div>
 
         </div>
@@ -82,14 +86,27 @@
     // Switch pages
         const btnOne = document.getElementById('clickOne');
         const btnTwo = document.getElementById('clickTwo');
+        const btnThree = document.getElementById('backToStart');
         const pageOne = document.querySelector('.first-page');
         const pageTwo = document.querySelector('.second-page');
+        const pageThree = document.querySelector('.third-page');
         pageTwo.classList.add('hide');
+        pageThree.classList.add('hide');
 
         btnOne.addEventListener('click', function(){
-          console.log('here');
           pageTwo.classList.remove('hide');
           pageOne.classList.add('hide');
+        });
+
+        btnTwo.addEventListener('click', function(){
+          pageTwo.classList.add('hide');
+          pageThree.classList.remove('hide');
+        });
+
+        btnThree.addEventListener('click', function(){
+          pageTwo.classList.add('hide');
+          pageThree.classList.add('hide');
+          pageOne.classList.remove('hide');
         });
     </script>
   </body>
