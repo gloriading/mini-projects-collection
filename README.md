@@ -4,3 +4,5 @@
 
 #### 😀 Please visit the site: https://gloriading.github.io/mini-projects-collection/
 ![Alt text](collection-index.png?raw=true "project collection")
+
+![Alt text](collection-clock.png?raw=true "project JS clock")
