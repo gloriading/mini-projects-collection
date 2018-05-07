@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
-
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
 
 html,body {
   padding: 0;
@@ -318,3 +318,189 @@ main {
 
 
 /*     third     */
+.box-three {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid whitesmoke;
+  perspective: 600px;
+  background-color: rgba(239, 87, 119, 0.6);
+  transition: 2.5s cubic-bezier(.87,-.41,.19,1.44);
+}
+.flower {
+  position: absolute;
+  border-radius: 100%;
+	display: inline-block;
+	height: 35px;
+	width: 35px;
+  z-index: 2;
+}
+.one {
+  left: 30px;
+  top: 50px;
+  background-color: #f48fb1;
+  box-shadow: 15px 19px #e91e63,
+            -15px 19px #e91e63,
+            -24px -7px #e91e63,
+            0px -24px #e91e63,
+            25px -7px #e91e63;
+  transition: 3s ease;
+}
+.two {
+  left: 130px;
+  top: 80px;
+  background-color: #ffe082;
+  box-shadow: 15px 19px #ffc107,
+            -15px 19px #ffc107,
+            -24px -7px #ffc107,
+            0px -24px #ffc107,
+            25px -7px #ffc107;
+  transition: 4s ease;
+}
+.three {
+  left: 230px;
+  top: 50px;
+  background-color: #7986cb;
+  box-shadow: 15px 19px #3f51b5,
+            -15px 19px #3f51b5,
+            -24px -7px #3f51b5,
+            0px -24px #3f51b5,
+            25px -7px #3f51b5;
+  transition: 3.5s ease;
+}
+.four {
+  left: 330px;
+  top: 80px;
+  background-color: #F79F1F;
+  box-shadow: 15px 19px #EE5A24,
+            -15px 19px #EE5A24,
+            -24px -7px #EE5A24,
+            0px -24px #EE5A24,
+            25px -7px #EE5A24;
+  transition: 6s ease;
+}
+.five {
+  left: 430px;
+  top: 50px;
+  background-color: #FDA7DF;
+  box-shadow: 15px 19px #B53471,
+            -15px 19px #B53471,
+            -24px -7px #B53471,
+            0px -24px #B53471,
+            25px -7px #B53471;
+  transition: 4.5s ease;
+}
+.six {
+  left: 530px;
+  top: 80px;
+  background-color: #A3CB38;
+  box-shadow: 15px 19px #009432,
+            -15px 19px #009432,
+            -24px -7px #009432,
+            0px -24px #009432,
+            25px -7px #009432;
+  transition: 3s ease;
+}
+.box-three:hover .flower {
+  transform: rotate(600deg) scale(0.8);
+}
+
+.sentence {
+  position: absolute;
+  z-index: 5;
+  font-family: 'Fredericka the Great','Archivo Narrow', sans-serif;
+  font-size: 60px;
+  color: #f53b57;
+  transition: 0.5s linear;
+}
+
+.part-one {
+  top: 100px;
+  left: 10px;
+}
+.part-two {
+  top: 200px;
+  left: 50px;
+}
+.box-three:hover .part-one {
+  transform: scale(1.4) translateX(15%);
+  text-shadow: 1px 1px 5px rgba(255,255,255,0.5);
+}
+.box-three:hover .part-two {
+  transform: scale(1.4) translateX(15%);
+  text-shadow: 1px 1px 5px rgba(255,255,255,0.5);
+}
+.bottom-cover {
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  height: 0%;
+  background-color: #ff5252;
+  border-top: 3px solid #b33939;
+  transition: 1s ease;
+}
+.bottom-cover h3 {
+  color: rgba(0,0,0,0.6);
+  font-weight: 500;
+  font-size: 18px;
+  margin-left: 10px;
+}
+.face {
+  position: absolute;
+  top: -50px;
+  right: 50px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: #ff5252;
+  border-top: 5px solid #b33939;
+}
+.face:before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #b33939;
+  z-index: -1;
+}
+.face:after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #b33939;
+  z-index: -1;
+}
+.face span {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  color: rgba(255,255,255,0.5);
+  transition: 0.5s ease;
+}
+.smile {
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  height: 20px;
+  width: 40px;
+  border-radius: 100%;
+  border-bottom: 5px solid #b33939;
+}
+.bottom-cover:hover {
+  height: 10%;
+  cursor: pointer;
+}
+.bottom-cover:hover .face span {
+  opacity: 0;
+}
