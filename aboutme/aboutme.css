@@ -13,7 +13,6 @@ a { text-decoration: none; }
 main {
   height: 100vh;
   width: 100vh;
-  min-width: 600px;
   position: relative;
 }
 .split {
@@ -39,7 +38,6 @@ main {
   width: 100px;
   height: 100px;
   z-index: 5;
-  /* border: 3px solid white; */
 }
 .moving-square.first {
   left: -100px;
@@ -146,5 +144,11 @@ span.tech {
   -webkit-background-clip: text;
      -moz-background-clip: text;
           background-clip: text;
+}
 
+@media only screen and (max-width: 600px) {
+    .slogan h1 {font-size: 2rem;}
+}
+@media only screen and (max-width: 768px) {
+    .slogan h1 {font-size: 4rem;}
 }
