@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
+
+html,body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+a { text-decoration: none; }
+* { box-sizing: border-box; }
+
+.greetings {
+  letter-spacing: 1px;
+}
+span.grey-words {
+  color: rgba(0,0,0,0.2);
+}
+span.my-name {
+  font-family: 'Patua One', sans-serif;
+}
