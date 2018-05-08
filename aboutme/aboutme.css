@@ -33,35 +33,44 @@ main {
   width: 40vw;
   right: 0;
   background-color: #596275;
-  perspective: 800px;
 }
 .moving-square {
   position: absolute;
-  top: 50%;
-  left: -50px;
   width: 100px;
   height: 100px;
-  transform-style: preserve-3d;
-  border: 3px solid white;
+  z-index: 5;
+  /* border: 3px solid white; */
+}
+.moving-square.first {
+  left: -100px;
+  top: 0%;
   transition: 1s ease;
+}
+.moving-square.second {
+  left: -100px;
+  bottom: 0%;
+  transition: 1.5s ease;
 }
 .moving-square div  {
   margin: 0;
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
 }
-.front {
+.moving-square.first {
+  background-color: #f78fb3;
+}
+.moving-square.second {
   background-color: #596275;
 }
-.back {
-  background-color: #f78fb3;
-  transform: rotateY(180deg);
-}
 
-#right:hover .moving-square {
-  transform: rotateY(360deg);
+#right:hover .moving-square.first {
+  background-color: #596275;
+  top: 100%;
+}
+#right:hover .moving-square.second {
+  background-color: #f78fb3;
+  bottom: 100%;
 }
 
 /* --------- left ----------- */
@@ -81,21 +90,35 @@ a.my-links {
   margin-left: 15px;
   font-size: 1.5rem;
   padding: 5px 15px;
-  color: inherit;
+  color: rgba(0,0,0,0.6);
+  transition: 0.8s ease;
   position: relative;
-  transition: 0.5s ease;
 }
 a.my-links:before {
   position: absolute;
   content: '';
-  bottom: -5px;
   left: 0;
+  top: 0;
   height: 100%;
-  width: 0;
+  width: 0%;
+  transition: 0.5s ease;
   border-bottom: 2px solid maroon;
 }
-a.mylinks:hover:before {
-  width: 80%;
+a.my-links:hover:before {
+  width: 100%;
+}
+a.my-links:hover {
+  color: rgba(0,0,0,0.9);
+}
+a.recent-creation {
+  font-size: 1.5rem;
+  padding: 5px 15px;
+  border: 2px solid rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.6);
+  transition: 0.8s ease;
+}
+a.recent-creation:hover {
+  color: maroon;
 }
 span.grey-words {
   color: rgba(0,0,0,0.2);
@@ -106,6 +129,9 @@ span.tech {
 }
 #left span.my-name {
   font-family: 'Patua One', sans-serif;
+}
+.greetings p:last-of-type {
+  margin-top: 40px;
 }
 
 /* --------- right ----------- */
