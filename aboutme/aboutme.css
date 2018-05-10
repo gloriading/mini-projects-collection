@@ -20,45 +20,48 @@ main {
   height: 100vh;
   padding: 20px;
   overflow: auto;
+  position: relative;
 }
 
-#left {
-  width: 60%;
-  background-color: rgb(159,241,165);
-}
+
 /* --------- right ----------- */
 
 #right {
   width: 40%;
   background-color: white;
-  position: relative;
 }
 .slogan {
   margin-left: 50px;
 }
 .slogan h1 {
   font-size: 4.5vw;
-  font-weight:700;
-  background-color: #ad1457;
+  font-weight: 700;
+  font-family: arial;
+  background-color: #666666;
   color: transparent;
   text-shadow: 0px 2px 3px rgba(255,255,255,0.45);
   -webkit-background-clip: text;
      -moz-background-clip: text;
           background-clip: text;
-
 }
 .menu {
   position: absolute;
   top:0;
-  right:0;
+  right: 0px;
   width: 0%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgb(241,201,124);
   transition: 0.3s ease;
   transition-delay: 1s;
 }
 #right:hover .menu {
   width: 100%;
+}
+.menu-list {
+  width: 80%;
+  height: 80%;
+  margin: 5px auto;
+  border: 1px solid white;
 }
 .moving-line {
   position: absolute;
@@ -70,13 +73,13 @@ main {
   left: 0;
   top: -100%;
   transition: 1s ease;
-  background-color: #f78fb3;
+  background-color: rgb(241,201,124);
 }
 .moving-line.second {
   left: 0;
   bottom: -100%;
   transition: 1.5s ease;
-  background-color: #596275;
+  background-color: white;
 }
 .moving-line div  {
   margin: 0;
@@ -86,12 +89,43 @@ main {
 }
 
 #right:hover .moving-line.first {
-  background-color: #596275;
   top: 100%;
 }
 #right:hover .moving-line.second {
-  background-color: #f78fb3;
   bottom: 100%;
 }
 
 /* --------- left ----------- */
+#left {
+  width: 60%;
+  background-color: rgb(248,249,148);
+  perspective: 800px;
+}
+.name-sqaure {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 10px solid white;
+  text-align: center;
+  margin: 40%;
+  transform: translate(-30%, -50%);
+  overflow: hidden;
+  transition: 0.2s ease;
+  transition-delay: 4.5s;
+}
+
+.name-sqaure h1 {
+  margin: 0;
+  font-size: 180px;
+  font-weight: lighter;
+  color: rgb(241,201,124);
+  text-shadow: 0 3px 5px rgba(0,0,0,0.8);
+  transition: 5s ease;
+}
+
+#left:hover .name-sqaure {
+  opacity: 0;
+}
+#left:hover .name-sqaure h1 {
+  transform: translateY(-700%);
+}
