@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
-@import url('https://fonts.googleapis.com/css?family=Patua+One');
+
 
 html,body {
   padding: 0;
@@ -12,143 +12,86 @@ a { text-decoration: none; }
 
 main {
   height: 100vh;
-  width: 100vh;
-  position: relative;
+  width: 100vw;
+  display: flex;
 }
 .split {
-  position: fixed;
-  top: 0;
+  display: inline-block;
   height: 100vh;
   padding: 20px;
+  overflow: auto;
 }
 
 #left {
-  width: 60vw;
-  left: 0;
-  background-color: #f78fb3;
+  width: 60%;
+  background-color: rgb(159,241,165);
 }
+/* --------- right ----------- */
 
 #right {
-  width: 40vw;
-  right: 0;
-  background-color: #596275;
+  width: 40%;
+  background-color: white;
+  position: relative;
 }
-.moving-square {
+.slogan {
+  margin-left: 50px;
+}
+.slogan h1 {
+  font-size: 4.5vw;
+  font-weight:700;
+  background-color: #ad1457;
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255,255,255,0.45);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+
+}
+.menu {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  top:0;
+  right:0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  transition: 0.3s ease;
+  transition-delay: 1s;
+}
+#right:hover .menu {
+  width: 100%;
+}
+.moving-line {
+  position: absolute;
+  width: 100%;
+  height: 50px;
   z-index: 5;
 }
-.moving-square.first {
-  left: -100px;
-  top: 0%;
+.moving-line.first {
+  left: 0;
+  top: -100%;
   transition: 1s ease;
+  background-color: #f78fb3;
 }
-.moving-square.second {
-  left: -100px;
-  bottom: 0%;
+.moving-line.second {
+  left: 0;
+  bottom: -100%;
   transition: 1.5s ease;
+  background-color: #596275;
 }
-.moving-square div  {
+.moving-line div  {
   margin: 0;
   position: absolute;
   width: 100%;
   height: 100%;
 }
-.moving-square.first {
-  background-color: #f78fb3;
-}
-.moving-square.second {
-  background-color: #596275;
-}
 
-#right:hover .moving-square.first {
+#right:hover .moving-line.first {
   background-color: #596275;
   top: 100%;
 }
-#right:hover .moving-square.second {
+#right:hover .moving-line.second {
   background-color: #f78fb3;
   bottom: 100%;
 }
 
 /* --------- left ----------- */
-.greetings {
-  letter-spacing: 1px;
-}
-.greetings h1 {
-  font-size: 3rem;
-}
-.greetings h3 {
-  font-size: 2rem;
-}
-.greetings p {
-  font-size: 1.5rem;
-}
-a.my-links {
-  margin-left: 15px;
-  font-size: 1.5rem;
-  padding: 5px 15px;
-  color: rgba(0,0,0,0.6);
-  transition: 0.8s ease;
-  position: relative;
-}
-a.my-links:before {
-  position: absolute;
-  content: '';
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0%;
-  transition: 0.5s ease;
-  border-bottom: 2px solid maroon;
-}
-a.my-links:hover:before {
-  width: 100%;
-}
-a.my-links:hover {
-  color: rgba(0,0,0,0.9);
-}
-a.recent-creation {
-  font-size: 1.5rem;
-  padding: 5px 15px;
-  border: 2px solid rgba(255,255,255,0.6);
-  color: rgba(255,255,255,0.6);
-  transition: 0.8s ease;
-}
-a.recent-creation:hover {
-  color: maroon;
-}
-span.grey-words {
-  color: rgba(0,0,0,0.2);
-}
-span.tech {
-  color: maroon;
-  font-size: 1.6rem;
-}
-#left span.my-name {
-  font-family: 'Patua One', sans-serif;
-}
-.greetings p:last-of-type {
-  margin-top: 40px;
-}
-
-/* --------- right ----------- */
-.slogan {
-  margin-left: 50px;
-}
-.slogan h1 {
-  font-size: 5.5em;
-  background-color: white;
-  color: transparent;
-  text-shadow: 0px 2px 3px rgba(0,0,0,0.45);
-  -webkit-background-clip: text;
-     -moz-background-clip: text;
-          background-clip: text;
-}
-
-@media only screen and (max-width: 600px) {
-    .slogan h1 {font-size: 2rem;}
-}
-@media only screen and (max-width: 768px) {
-    .slogan h1 {font-size: 4rem;}
-}
