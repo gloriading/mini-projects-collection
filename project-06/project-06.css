@@ -54,3 +54,41 @@ a {
     top: -10px;
     left: 35%;
   }
+/*      main      */
+main {
+  display:flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.display-container {
+  flex: 2;
+  height: 400px;
+  border: 1px solid red;
+}
+.input-container {
+  flex: 1;
+  height: 400px;
+  border: 1px solid blue;
+}
+.input-container div {
+  margin: 20px;
+}
+textarea {
+  border: none;
+  border-left: 1px solid gray;
+  transition: 0.3s;
+}
+textarea:focus {
+  outline: none;
+  background-color: rgba(0,255,0,0.4);
+  border: none;
+}
+.btn {
+  width: 100px;
+  padding: 5px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+.btn:hover {
+  cursor: pointer;
+}
