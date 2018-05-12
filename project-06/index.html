@@ -20,7 +20,9 @@
     </header>
     <main>
       <div class="display-container">
-
+        <div>
+          <p id="display"> </p>
+        </div>
       </div>
       <div class="input-container">
         <div>
@@ -32,9 +34,47 @@
           cols="50"></textarea>
           <br />
           <input id="send" type="submit" class="btn"></input>
-          <button id="moveup" class="btn"> Start </button>          
+          <button id="moveup" class="btn"> Start </button>
         </div>
       </div>
     </main>
+
+
+    <script>
+    const btn = document.getElementById('send');
+    const userInput = document.getElementById('userInput');
+    const displayArea = document.getElementById('display');
+    const btnMoveUp = document.getElementById('moveup');
+    let wordCount = 1;
+
+    btn.addEventListener('click',function(e){
+      let content = userInput.value;
+      wordCount = content.split(' ').length;
+
+      let contentCheck = userInput.value.replace(/\s+/g, '');
+      if(contentCheck != '' ){
+        let newPtag = document.createElement('p');
+        displayArea.innerHTML = content;
+        displayArea.classList.add('style');
+
+      }else{
+        console.log('you did not enter a thing');
+        alert('Please enter at least one word.');
+      }
+
+    });
+
+    btnMoveUp.addEventListener('click',function(){
+      displayArea.classList.add('move-up');
+      if(wordCount >=1 && wordCount <= 60){
+        displayArea.classList.add('speed-01');
+      }else if(wordCount > 60 && wordCount <= 150){
+        displayArea.classList.add('speed-02');
+      }else {
+        displayArea.classList.add('speed-03');
+      }
+
+    });
+    </script>
   </body>
 </html>
