@@ -34,7 +34,9 @@
           cols="50"></textarea>
           <br />
           <input id="send" type="submit" class="btn"></input>
-          <button id="moveup" class="btn"> Start </button>
+          <button id="moveup" class="btn"> Play </button>
+          <button id="pause" class="btn" disabled> Pause </button>
+          <button id="replay" class="btn"> Re-Play </button>
         </div>
       </div>
     </main>
@@ -45,6 +47,8 @@
     const userInput = document.getElementById('userInput');
     const displayArea = document.getElementById('display');
     const btnMoveUp = document.getElementById('moveup');
+    const btnPause = document.getElementById('pause');
+    const btnReplay = document.getElementById('replay');
     let wordCount = 1;
 
     btn.addEventListener('click',function(e){
@@ -80,6 +84,20 @@
       displayArea.style.transition = `transform ${baseSpeed * multiplier}s linear`;
 
     });
+
+    btnPause.addEventListener('click', function(){
+
+    });
+
+    btnReplay.addEventListener('click', function(){
+      displayArea.classList.remove('move-up');
+      displayArea.classList.remove('move-more-up');
+      displayArea.style.transition = 'none';
+      setTimeout(function(){
+        btnMoveUp.click();
+      },100);
+    });
+
     </script>
   </body>
 </html>
