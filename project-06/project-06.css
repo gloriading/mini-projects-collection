@@ -107,15 +107,12 @@ textarea:focus {
 
 .style {
   font-size: 60px;
-  transition: transform 15s ease;
 }
 
 .move-up {
   transform: translateY(-150%);
 }
-/* word count 1-60 */
-.speed-01 { transition: transform 45s linear; }
-/* word count 61-100 */
-.speed-02 { transition: transform 55s linear; }
-/* word count 101-150 */
-.speed-03 { transition: transform 65s linear; }
+
+.move-more-up {
+  transform: translateY(-200%);  
+}
