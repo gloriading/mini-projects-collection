@@ -19,7 +19,12 @@
     </header>
     <main>
       <div class="display">
+        <div class="message-area">
+          <h2 id='message'></h2>
+        </div>
+        <div class="options-area">
 
+        </div>
       </div>
       <div class="control">
         <div class="control-inner">
@@ -49,6 +54,9 @@
       const numStartArea = document.getElementById('start');
       const numEndArea = document.getElementById('end');
       const rangeArea = document.querySelector('.range-area h4');
+      const optionArea = document.querySelector('.options-area');
+      const messageArea = document.getElementById('message');
+
       let userInput, target;
 
       sumbitBtn.addEventListener('click', function(e){
@@ -64,10 +72,20 @@
         numEndArea.innerHTML = userInput + 100;
         rangeArea.style.display = 'block';
         document.getElementById('startNum').value = '';
-        target = userInput + 1 + Math.floor(Math.random()*100);
-        console.log(target);
-      });
 
+        // Random target is created after user input a number
+        target = userInput + 1 + Math.floor(Math.random()*100);
+        // generate 99 numbers for users to choose
+        for(let i = userInput + 1; i< userInput + 100; i++){
+          let tempDiv = document.createElement('div');
+          tempDiv.classList.add('number');
+          tempDiv.innerHTML = i;
+          optionArea.appendChild(tempDiv);
+        }
+        // first message to users
+        messageArea.innerHTML = "Please guess the first number.";
+      });
+// <div class="number">23</div>
 
     </script>
   </body>

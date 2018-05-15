@@ -61,11 +61,8 @@ main {
   height: 65vh;
   display: flex;
 }
-.display {
-  width: 65%;
-  height: 100%;
-  border: 1px solid black;
-}
+
+/*      control      */
 .control {
   width: 35%;
   height: 100%;
@@ -106,6 +103,48 @@ input[type="submit"]:hover {
 span.number-range {
   font-size: 2em;
   color:rgba(245, 59, 87, 0.8);
+}
+
+/*      display      */
+.display {
+  width: 65%;
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.message-area {
+  width: 85%;
+  height: 30%;
+  border: 1px solid yellow;
+  text-align: center;
+}
+.message-area h2#message {
+  
+}
+.options-area {
+  width: 85%;
+  height: 70%;
+  border: 1px solid pink;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  overflow-y: scroll;
+}
+.number {
+  width: 30px;
+  height: 30px;
+  border-bottom: 1px solid gray;
+  font-size: 0.8em;
+  text-align: center;
+  line-height: 2.5em;
+}
+.number:hover {
+  background-color: rgba(245, 59, 87, 0.5);
+  cursor: pointer;
+  line-height: 1.2em;
 }
 
 /*
