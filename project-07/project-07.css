@@ -81,7 +81,7 @@ main {
   align-items: center;
 }
 .range-area h4 {
-  /* display: none; */
+  display: none;
 }
 input[type="text"] {
   width: 100px;

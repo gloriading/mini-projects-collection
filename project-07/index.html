@@ -24,7 +24,7 @@
       <div class="control">
         <div class="control-inner">
           <h3>Please enter a positive integar:</h3>
-          <p>To re-start, enter another number.</p>
+          <p>* To re-start, enter another number.</p>
           <div class="input-area">
             <input type="text" id="startNum">
             <input type="submit" id="submit" value="enter">
@@ -42,5 +42,32 @@
 
       </div>
     </main>
+
+    <script>
+      const sumbitBtn = document.getElementById('submit');
+      const numInput = document.getElementById('startNum');
+      const numStartArea = document.getElementById('start');
+      const numEndArea = document.getElementById('end');
+      const rangeArea = document.querySelector('.range-area h4');
+      let target;
+
+      sumbitBtn.addEventListener('click', function(e){
+        let userInput = Math.round(parseFloat(numInput.value));
+        // user enters a number, round it to integar
+        // user does not enter a number, alert user
+
+        // if(typeof(userInput)!== 'number'){
+        //   alert('Please enter an integar.');
+        // }
+
+        numStartArea.innerHTML = userInput;
+        numEndArea.innerHTML = userInput + 100;
+        rangeArea.style.display = 'block';
+        document.getElementById('startNum').value = '';
+
+      });
+
+
+    </script>
   </body>
 </html>
