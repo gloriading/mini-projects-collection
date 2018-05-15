@@ -49,10 +49,10 @@
       const numStartArea = document.getElementById('start');
       const numEndArea = document.getElementById('end');
       const rangeArea = document.querySelector('.range-area h4');
-      let target;
+      let userInput, target;
 
       sumbitBtn.addEventListener('click', function(e){
-        let userInput = Math.round(parseFloat(numInput.value));
+        userInput = Math.round(parseFloat(numInput.value));
         // user enters a number, round it to integar
         // user does not enter a number, alert user
 
@@ -64,7 +64,8 @@
         numEndArea.innerHTML = userInput + 100;
         rangeArea.style.display = 'block';
         document.getElementById('startNum').value = '';
-
+        target = userInput + 1 + Math.floor(Math.random()*100);
+        console.log(target);
       });
 
 
