@@ -13,7 +13,7 @@
     </nav>
     <header>
       <h2>
-        <span> <i class="fas fa-book fa-lg"></i> </span>
+        <span> <i class="fas fa-calculator fa-lg"></i> </span>
         Number Guessing Game
       </h2>
     </header>
@@ -115,6 +115,7 @@
         if(currentChoice == target){
           messageArea.innerHTML = `YES ! The target number is <span class="number-range">${target}</span> with ${counter} tries`;
           numInput.focus();
+          optionArea.innerHTML = '';
         }else if(currentChoice > target){
           messageArea.innerHTML = `Your guessing <span class="message-number-chosen">${currentChoice}</span>, is <span class="message-messages">too big</span>.`;
           handleRangeChangeAbove(index);
