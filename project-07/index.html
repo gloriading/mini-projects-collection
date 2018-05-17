@@ -56,25 +56,35 @@
       const rangeArea = document.querySelector('.range-area h4');
       const optionArea = document.querySelector('.options-area');
       const messageArea = document.getElementById('message');
+      let numbers;
 
       let userInput, target;
 
       sumbitBtn.addEventListener('click', function(e){
         userInput = Math.round(parseFloat(numInput.value));
-        // user enters a number, round it to integar
-        // user does not enter a number, alert user
 
-        // if(typeof(userInput)!== 'number'){
-        //   alert('Please enter an integar.');
-        // }
+        if (isNaN(numInput.value)){
+          alert('Please enter a number (an integar).');
+        }else {
+            displayRangeRight();
+            targetGenerated();
+            numbersToPick();
+        }
 
+      });
+
+      const displayRangeRight = function(){
         numStartArea.innerHTML = userInput;
         numEndArea.innerHTML = userInput + 100;
         rangeArea.style.display = 'block';
         document.getElementById('startNum').value = '';
+      }
 
-        // Random target is created after user input a number
+      const targetGenerated = function(){
         target = userInput + 1 + Math.floor(Math.random()*100);
+      }
+
+      const numbersToPick = function(){
         // generate 99 numbers for users to choose
         for(let i = userInput + 1; i< userInput + 100; i++){
           let tempDiv = document.createElement('div');
@@ -82,11 +92,11 @@
           tempDiv.innerHTML = i;
           optionArea.appendChild(tempDiv);
         }
+        numbers = document.querySelectorAll('.number');
         // first message to users
-        messageArea.innerHTML = "Please guess the first number.";
-      });
-// <div class="number">23</div>
-
+        messageArea.innerHTML = "Please take the first guess.";
+      }
+      
     </script>
   </body>
 </html>
