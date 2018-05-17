@@ -66,7 +66,6 @@ main {
 .control {
   width: 35%;
   height: 100%;
-  border: 1px solid red;
 }
 .control-inner {
   margin: 0 auto;
@@ -110,7 +109,6 @@ span.number-range {
 .display {
   width: 65%;
   height: 100%;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -119,7 +117,6 @@ span.number-range {
 .message-area {
   width: 85%;
   height: 30%;
-  border: 1px solid yellow;
   text-align: center;
 }
 .message-area h2#message {
@@ -135,7 +132,6 @@ span.number-range {
 .options-area {
   width: 85%;
   height: 70%;
-  border: 1px solid pink;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -152,6 +148,7 @@ span.number-range {
   background-color: rgba(255, 255, 0, 0.5);
   cursor: pointer;
   line-height: 1.2em;
+  font-size: 1.2em;
 }
 
 /*
