@@ -36,10 +36,8 @@
           </div>
           <div class="range-area">
             <h4>
-              The number is between
-              <span class="number-range" id="start"></span>
-               and
-              <span class="number-range" id="end"></span>.
+              <i class="far fa-arrow-alt-circle-left"></i>
+              The number range is shown on the left panel.
             </h4>
           </div>
 
@@ -51,8 +49,6 @@
     <script>
       const sumbitBtn = document.getElementById('submit');
       const numInput = document.getElementById('startNum');
-      const numStartArea = document.getElementById('start');
-      const numEndArea = document.getElementById('end');
       const rangeArea = document.querySelector('.range-area h4');
       const optionArea = document.querySelector('.options-area');
       const messageArea = document.getElementById('message');
@@ -84,8 +80,6 @@
       }
 
       const displayRangeRight = function(){
-        numStartArea.innerHTML = userInput;
-        numEndArea.innerHTML = userInput + 100;
         rangeArea.style.display = 'block';
         document.getElementById('startNum').value = '';
       };
@@ -134,7 +128,7 @@
           numbers[i].style.display = 'none';
         }
       };
-      
+
       const handleRangeChangeBelow = function(position){
         for(let i = 0; i< position+1; i++){
           numbers[i].style.display = 'none';

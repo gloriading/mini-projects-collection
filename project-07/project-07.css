@@ -71,6 +71,7 @@ main {
 .control-inner {
   margin: 0 auto;
   width: 80%;
+  letter-spacing: 1px;
 }
 .input-area {
   display: flex;
