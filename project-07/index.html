@@ -56,33 +56,44 @@
       const rangeArea = document.querySelector('.range-area h4');
       const optionArea = document.querySelector('.options-area');
       const messageArea = document.getElementById('message');
-      let numbers;
 
-      let userInput, target;
+      let userInput, target, numbers, currentChoice;
+
+      window.onload = numInput.focus();
 
       sumbitBtn.addEventListener('click', function(e){
         userInput = Math.round(parseFloat(numInput.value));
+        optionArea.innerHTML = '';
 
         if (isNaN(numInput.value)){
-          alert('Please enter a number (an integar).');
+          handleNonNum();
         }else {
-            displayRangeRight();
-            targetGenerated();
-            numbersToPick();
+          displayRangeRight();
+          targetGenerated();
+          numbersToPick();
         }
 
       });
+
+      const handleNonNum = function(){
+        alert('Please enter a number (an integar).');
+        document.getElementById('startNum').value = '';
+        numInput.focus();
+        rangeArea.style.display = 'none';
+        messageArea.innerHTML = '';
+      }
 
       const displayRangeRight = function(){
         numStartArea.innerHTML = userInput;
         numEndArea.innerHTML = userInput + 100;
         rangeArea.style.display = 'block';
         document.getElementById('startNum').value = '';
-      }
+      };
 
       const targetGenerated = function(){
         target = userInput + 1 + Math.floor(Math.random()*100);
-      }
+        console.log(target);
+      };
 
       const numbersToPick = function(){
         // generate 99 numbers for users to choose
@@ -95,8 +106,43 @@
         numbers = document.querySelectorAll('.number');
         // first message to users
         messageArea.innerHTML = "Please take the first guess.";
-      }
+
+        for(let i=0; i < numbers.length; i++){
+          numbers[i].addEventListener('click',function(e){
+            currentChoice = parseInt(this.innerHTML);
+            handlePickNum(i);
+          });
+        }
+
+      };
+
+      const handlePickNum = function(index){
+        if(currentChoice == target){
+          messageArea.innerHTML = `YES ! The target number is <span class="number-range">${target}</span>.`;
+          numInput.focus();
+        }else if(currentChoice > target){
+          messageArea.innerHTML = `Your guessing <span class="message-number-chosen">${currentChoice}</span>, is <span class="message-messages">too big</span>.`;
+          handleRangeChangeAbove(index);
+        }else{
+          messageArea.innerHTML = `Your guessing <span class="message-number-chosen">${currentChoice}</span>, is <span class="message-messages">too small</span>.`;
+          handleRangeChangeBelow(index);
+        }
+      };
+
+      const handleRangeChangeAbove = function(position){
+        for(let i = position+1; i< numbers.length; i++){
+          numbers[i].style.display = 'none';
+        }
+      };
       
+      const handleRangeChangeBelow = function(position){
+        for(let i = 0; i< position+1; i++){
+          numbers[i].style.display = 'none';
+        }
+      };
+
+
+
     </script>
   </body>
 </html>

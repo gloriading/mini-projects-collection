@@ -122,7 +122,14 @@ span.number-range {
   text-align: center;
 }
 .message-area h2#message {
-  
+  letter-spacing: 1px;
+}
+.message-number-chosen {
+  color:rgba(245, 59, 87, 0.8);
+}
+.message-messages {
+  color: rgba(0, 0, 205, 0.8);
+  text-transform: uppercase;
 }
 .options-area {
   width: 85%;
@@ -136,13 +143,12 @@ span.number-range {
 .number {
   width: 30px;
   height: 30px;
-  border-bottom: 1px solid gray;
   font-size: 0.8em;
   text-align: center;
   line-height: 2.5em;
 }
 .number:hover {
-  background-color: rgba(245, 59, 87, 0.5);
+  background-color: rgba(255, 255, 0, 0.5);
   cursor: pointer;
   line-height: 1.2em;
 }
