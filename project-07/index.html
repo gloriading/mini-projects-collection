@@ -53,13 +53,14 @@
       const optionArea = document.querySelector('.options-area');
       const messageArea = document.getElementById('message');
 
-      let userInput, target, numbers, currentChoice;
+      let userInput, target, numbers, currentChoice, counter=0;
 
       window.onload = numInput.focus();
 
       sumbitBtn.addEventListener('click', function(e){
         userInput = Math.round(parseFloat(numInput.value));
         optionArea.innerHTML = '';
+        counter = 0;
 
         if (isNaN(numInput.value)){
           handleNonNum();
@@ -86,7 +87,6 @@
 
       const targetGenerated = function(){
         target = userInput + 1 + Math.floor(Math.random()*100);
-        console.log(target);
       };
 
       const numbersToPick = function(){
@@ -103,6 +103,7 @@
 
         for(let i=0; i < numbers.length; i++){
           numbers[i].addEventListener('click',function(e){
+            counter ++;
             currentChoice = parseInt(this.innerHTML);
             handlePickNum(i);
           });
@@ -112,7 +113,7 @@
 
       const handlePickNum = function(index){
         if(currentChoice == target){
-          messageArea.innerHTML = `YES ! The target number is <span class="number-range">${target}</span>.`;
+          messageArea.innerHTML = `YES ! The target number is <span class="number-range">${target}</span> with ${counter} tries`;
           numInput.focus();
         }else if(currentChoice > target){
           messageArea.innerHTML = `Your guessing <span class="message-number-chosen">${currentChoice}</span>, is <span class="message-messages">too big</span>.`;
