@@ -35,7 +35,7 @@
           <br />
           <input id="send" type="submit" class="btn"></input>
           <button id="moveup" class="btn"> Play </button>
-          <button id="pause" class="btn" disabled> Pause </button>
+          <button id="pause" class="btn"> Pause </button>
           <button id="replay" class="btn"> Re-Play </button>
         </div>
       </div>
@@ -49,7 +49,7 @@
     const btnMoveUp = document.getElementById('moveup');
     const btnPause = document.getElementById('pause');
     const btnReplay = document.getElementById('replay');
-    let wordCount = 1;
+    let wordCount = 1, running = false;
 
     btn.addEventListener('click',function(e){
       let content = userInput.value;
@@ -86,6 +86,13 @@
     });
 
     btnPause.addEventListener('click', function(){
+      if(!running){
+        this.innerHTML = 'resume';
+        running = true;
+      }else{
+        this.innerHTML = 'pause';
+        running = false;
+      }
 
     });
 
