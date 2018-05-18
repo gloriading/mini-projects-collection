@@ -56,3 +56,66 @@ a {
   }
 
 /*      main      */
+main {
+  display: flex;
+  height: 60vh;
+}
+.display-area {
+  width: 70%;
+  border: 1px solid red;
+}
+
+/*      control-area      */
+.control-area {
+  width: 30%;
+  border: 1px solid blue;
+}
+.search-container {
+  margin: 20px auto;
+  width: 90%;
+  height: 80%;
+}
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: 2px solid rgba(255, 118, 117,1.0);
+  background-color: rgba(255, 118, 117,1.0);
+  border-radius: 5px;
+  align-items: center;
+}
+input[type="text"] {
+  margin: 5px;
+  height: 30px;
+  width: 200px;
+  font-size: 20px;
+  outline: none;
+}
+input[type="text"]:focus {
+  background-color: rgba(129, 236, 236, 1);
+}
+.search div {
+  height: 20px;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: arial;
+  letter-spacing: 1px;
+  color: white;
+  margin-left: 5px;
+  padding: 0px 5px;
+  position: relative;
+  cursor: pointer;
+}
+.search div:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  background: white;
+  transition: 0.5s ease;
+}
+.search div:hover:after {
+  width: 80%;
+}
