@@ -56,3 +56,45 @@ a {
   }
 
 /*      main      */
+
+.container-quote {
+  margin: 10px auto;
+  position: relative;
+  width: 80%;
+  height: 50vh;
+  border: 3px solid rgba(0,0,0,0.5);
+  padding: 20px;
+  letter-spacing: 1px;
+  background-color: rgba(120, 111, 166, 0.6);
+}
+#quote {
+  font-size: 22px;
+  font-family:sans-serif;
+}
+#author {
+  position: absolute;
+  right: 10px;;
+  bottom: 5px;
+}
+
+button {
+  width: 100px;
+  border-radius:5px;
+  background-color:#ffffff;
+  float:left;
+  margin:5px;
+  padding: 10px;
+  outline: none;
+}
+
+button:hover{
+  background: rgba(120, 111, 166, 0.6);
+  border-radius:5px;
+  font-weight: bold;
+  cursor: crosshair;
+}
+.container-btn {
+  margin: 10px auto;
+  width: 80%;
+  height: 50vh;
+}

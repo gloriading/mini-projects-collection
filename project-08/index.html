@@ -5,6 +5,7 @@
     <title>Gloria | Random Quote Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="project-08.css">
   </head>
   <body>
@@ -18,8 +19,49 @@
       </h2>
     </header>
     <main>
-      
+      <div class="container-quote">
+        <div id= "quote"></div>
+        <div id= "author"></div>
+      </div>
+      <div class="container-btn">
+        <button class= "new-quote">NEW QUOTE</button>
+        <button class= "twitter"> TWEET </button>
+      </div>
     </main>
 
+    <script>
+
+    $(document).ready(function(){
+      let quoteContent, quoteAuthor;
+
+      function getQuote() {
+        $.ajax({
+          dataType: "jsonp",
+          jsonpCallback: "parseQuote",
+          url: "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote",
+          success: function(results) {
+            quoteContent = results.quoteText;
+            quoteAuthor = results.quoteAuthor;
+            $('#quote').text(quoteContent);
+            $('#author').text(quoteAuthor);
+          }
+        });
+      }
+
+        // get a random quote when page loads
+      getQuote();
+
+      $('.new-quote').click(getQuote);
+
+      $('.twitter').on("click", function() {
+        var myUrl = 'https://twitter.com/intent/tweet?text=' + quoteContent + ' ' + quoteAuthor;
+        window.open(myUrl, 'twitter');
+        return false;
+      });
+
+
+    });
+
+    </script>
   </body>
 </html>
