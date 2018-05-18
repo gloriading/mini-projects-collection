@@ -72,6 +72,13 @@
 
       });
 
+      // Enter works as clicking on submit
+      numInput.addEventListener('keyup', function(e){
+        if(e.key === 'Enter'){
+          sumbitBtn.click();
+        }
+      });
+
       const handleNonNum = function(){
         alert('Please enter a number (an integar).');
         document.getElementById('startNum').value = '';
