@@ -5,7 +5,7 @@
     <title>Gloria | Wikipedia Viewer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="project-09.css">
 
   </head>
@@ -21,7 +21,9 @@
     </header>
     <main>
       <div class="display-area">
-
+        <div class="content-display">
+          <div id="show"></div>
+        </div>
       </div>
 
       <div class="control-area">
@@ -29,9 +31,63 @@
           <div class="search">
             <input type="text" id="userInput"/> </input><div id= "btn"> Search </div>
           </div>
+          <div class="rand-article">
+            <h3>Don't have anything to search? Get a random wikipedia article <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Here</a> </h3>
+          </div>
         </div>
       </div>
-      
+
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    const inputField = document.getElementById('userInput');
+    const btn = document.getElementById('btn');
+    const show = document.getElementById('show');
+
+    btn.addEventListener('click', function(e){
+      wikiSearch();
+    });
+
+    inputField.addEventListener('keyup',function(e){
+      if(e.key === 'Enter'){
+        btn.click();
+      }
+    });
+
+    window.onload = inputField.focus();
+
+    function wikiSearch() {
+
+        let query = inputField.value;
+        const api = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=max&format=json&exsentences=1&exintro=&explaintext=&generator=search&gsrlimit=20&gsrsearch=";
+        const wikilink = 'http://en.wikipedia.org/?curid=';
+
+        const link = api + query;
+        let html = "";
+
+window.onload = numInput.focus();
+        $.ajax({
+            url: link,
+            type: "get",
+            dataType: "JSONP",
+            success: function (data) {
+                var results = data.query.pages;
+                var pgs = Object.keys(results);
+                pgs.forEach(function (page) {
+                    var title = results[page].title;
+                    var text = results[page].extract;
+                    var pagelink = wikilink + results[page].pageid;
+
+                    html += `
+                      <a href="${pagelink}" target="_blank">${title}</a><div class="description">${text}</div>
+                    `;
+
+                });
+
+                $('#show').html(html);
+            }
+        });
+    }
+    </script>
   </body>
 </html>
