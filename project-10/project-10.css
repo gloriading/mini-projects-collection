@@ -172,6 +172,10 @@ button#additionBtn:hover {
   background-color: rgba(6, 82, 221, 0.4);
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
+  transition: 0.5s ease;
+}
+.row:hover {
+  background-color: rgba(6, 82, 221, 0.2);
 }
 img {
   width: 50px;
@@ -200,7 +204,7 @@ img {
 .account a:hover {
   color: #218c74;
 }
-.status {
+.status, .followers {
   letter-spacing: 2px;
   font-size: 0.9em;
 }

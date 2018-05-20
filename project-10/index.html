@@ -115,6 +115,7 @@ function getInfo(){
         let username = data.display_name != null ? data.display_name : channel;
         let description = status === 'online' ? data.status : "";
         let link = data.url;
+        let followers = data.followers;
         let html = `
           <div class="row ${status}">
             <div class="icon"><img src="${logo}"></div>
@@ -125,6 +126,7 @@ function getInfo(){
                   </a>
               </div>
               <div class="status">${status}</div>
+              <div class="followers">Followers: ${followers.toLocaleString()}</div>
             </div>
             <div class="description">${description}</div>
         </div>`;
