@@ -54,3 +54,71 @@ a {
     top: -10px;
     left: 35%;
   }
+
+/*      main      */
+main {
+  height: 65vh;
+  display: flex;
+}
+#display {
+  border: 1px solid #0652DD;
+  background-color: rgba(6, 82, 221, 0.4);
+  width: 65%;
+}
+
+/*      control      */
+#control {
+  border: 1px solid #ED4C67;
+  background-color: rgba(237, 76, 103, 0.4);
+  width: 35%;
+}
+.btns {
+  width: 80%;
+  margin: 10px auto;
+  border: 2px white solid;
+}
+.btn {
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+  transition: 0.3s ease;
+}
+.btn h3 {
+  margin: 0;
+  letter-spacing: 2px;
+  text-align: right;
+  transition: 0.3s ease;
+}
+.btn:before {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(237, 76, 103, 0.9);
+  transition: 0.3s ease;
+}
+.btn.active:before {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.btn.active {
+  background-color: rgba(237, 76, 103, 0.9);
+}
+.btn.active h3 {
+  text-transform: uppercase;
+  color: white;
+  transform: translateX(-60%);
+}
+.btn:hover {
+  cursor:pointer;
+}
+.btn:hover:before {
+  width: 100%;
+}

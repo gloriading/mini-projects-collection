@@ -18,8 +18,44 @@
         Twitch Streamer
       </h2>
     </header>
+    <main>
+      <div id="display">
+
+      </div>
+      <div id="control">
+        <div class="btns">
+          <div class="btn active" id="all">
+             <h3>all</h3>
+           </div>
+          <div class="btn" id="online">
+            <h3>online</h3>
+          </div>
+          <div class="btn" id="offline">
+             <h3>offline </h3>
+          </div>
+        </div>
+      </div>
+    </main>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  // click on btn add/remove class active
+  const btns = document.querySelectorAll('.btn');
+
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btns.forEach(function(btn){
+        btn.classList.remove('active');
+      });
+      btn.classList.add('active');
+    });
+  });
+
+
+
+
+
+  </script>
   </body>
 </html>
