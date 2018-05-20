@@ -48,7 +48,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
-  // click on btn add/remove class active
+
+// click on btn add/remove class active
   const btns = document.querySelectorAll('.btn');
 
   btns.forEach(function(btn){
@@ -60,6 +61,102 @@
     });
   });
 
+// Twitch JSON API
+//  buttons
+const all = document.getElementById('all');
+const online = document.getElementById('online');
+const offline = document.getElementById('offline');
+// display area
+const display = document.getElementById('display');
+// default channel list
+let channels = ["vash12349", "disguisedtoasths", "bouncinecki", "blackufa_twitch"];
+
+// input
+const inputField = document.getElementById('addition');
+const submitBtn =  document.getElementById('additionBtn');
+
+submitBtn.addEventListener('click',function(){
+  let userInput = inputField.value;
+  if(userInput.includes('https://www.twitch.tv/')){
+    let tempArr = userInput.split('tv/');
+    console.log(tempArr[1]);
+    channels.push(tempArr[1]);
+    display.innerHTML = '';
+    getInfo();
+    inputField.value = '';
+  }else{
+    alert('Please enter a valid twitch streamer url.');
+    inputField.focus();
+  }
+
+});
+
+function getInfo(){
+  channels.forEach(function(channel){
+      let url = `https://wind-bow.gomix.me/twitch-api/streams/${channel}?callback=?`;
+      let urlChannel = `https://wind-bow.gomix.me/twitch-api/channels/${channel}?callback=?`;
+    $.getJSON(url, function(data){
+      let gameType, status;
+      if(data.stream === null){
+        gameType = 'offline';
+        status = 'offline';
+      }else if(data.stream === undefined){
+        gameType = 'account does not exist';
+        status = 'offline';
+      }else {
+        gameType = data.stream.game;
+        status = 'online';
+      }
+
+      $.getJSON(urlChannel, function(data){
+        // console.log(data);
+
+        let logo = data.logo != null ? data.logo : 'https://dummyimage.com/50x50/ecf0e7/5c5457.jpg&text=0x3F';
+        let username = data.display_name != null ? data.display_name : channel;
+        let description = status === 'online' ? data.status : "";
+        let link = data.url;
+        let html = `
+          <div class="row ${status}">
+            <div class="icon"><img src="${logo}"></div>
+            <div class="account-status-container">
+              <div class="account">
+                 <a href="${link}" target="_blank">
+                  ${username}
+                  </a>
+              </div>
+              <div class="status">${status}</div>
+            </div>
+            <div class="description">${description}</div>
+        </div>`;
+
+        $('#display').append(html);
+      });
+
+    });
+
+  });
+
+};
+getInfo();
+
+
+$(document).ready(function(){
+
+  $('#all').click(function(){
+    $('.online, .offline').removeClass('hide');
+  });
+
+  $('#online').click(function(){
+    $('.online').removeClass('hide');
+    $('.offline').addClass('hide');
+  });
+
+    $('#offline').click(function(){
+    $('.offline').removeClass('hide');
+    $('.online').addClass('hide');
+  });
+
+});
 
 
 
