@@ -69,7 +69,6 @@ main {
 /*      control      */
 #control {
   border: 1px solid #ED4C67;
-  background-color: rgba(237, 76, 103, 0.4);
   width: 35%;
 }
 .btns {
@@ -121,4 +120,46 @@ main {
 }
 .btn:hover:before {
   width: 100%;
+}
+
+.new-streamers {
+  width: 80%;
+  margin: 10px auto;
+  border: 2px white solid;
+  font-family: arial;
+}
+.input-line {
+  display: flex;
+}
+input#addition {
+  flex: 4;
+  height: 30px;
+  font-size: 22px;
+  background-color: rgba(237, 76, 103, 0.6);
+  border: none;
+  outline: white 2px solid;
+}
+button#additionBtn {
+  flex: 1;
+  height: 30px;
+  font-size: 14px;
+  margin-left: 5px;
+  background-color: rgba(237, 76, 103, 0.9);
+  border: none;
+  color: white;
+  transition: 0.3s ease;
+}
+button#additionBtn:hover {
+  cursor: pointer;
+  transform:scale(0.9);
+}
+
+.new-streamers h4 {
+  margin: 10px 0 5px 5px;
+  color: rgba(237, 76, 103, 1);
+}
+.new-streamers p {
+  margin: 5px 10px;
+  font-size: 0.8em;
+  color: rgba(0,0,0,0.7);
 }
