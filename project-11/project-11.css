@@ -54,3 +54,56 @@ a {
     top: -10px;
     left: 32%;
   }
+
+/*      main      */
+main {
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+}
+
+.color-container {
+  margin: 0px 30px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid red;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+}
+.cell {
+
+  flex:1;
+  transition: 0.2s ease;
+}
+.cell:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  border: 2px solid white;
+  margin: -2px;
+}
+
+
+/*      controller      */
+
+.controller {
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+}

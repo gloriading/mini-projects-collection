@@ -19,6 +19,75 @@
         Colour Generator 2.0
       </h2>
     </header>
+    <main>
+      <div class="color-container">
 
+      </div>
+      <div class="controller">
+        <button id="changeSets">
+          Click to Generate
+        </button>
+      </div>
+    </main>
+
+
+  <script>
+
+  const main = document.querySelector('.color-container');
+  const btn = document.getElementById('changeSets');
+
+  function addRow(){
+    const rowdiv = document.createElement('div');
+    rowdiv.classList.add('row');
+    const celldiv = document.createElement('div');
+    celldiv.classList.add('cell');
+
+    for(let i=0; i< 10; i++){
+      rowdiv.appendChild(celldiv.cloneNode(true));
+    }
+    for(let i=0; i<10; i++){
+      main.appendChild(rowdiv.cloneNode(true));
+    }
+
+  }
+  addRow();
+
+  const allCells = document.querySelectorAll('.cell');
+
+  function addColours(){
+    let colours = [];
+    // generate unique colours
+    while(colours.length < 100){
+      let tempColour = randomColour();
+      if(colours.indexOf(tempColour) == -1 ){
+        colours.push(tempColour);
+      }
+    };
+
+    for(let i=0; i< allCells.length; i++){
+      allCells[i].style.backgroundColor = colours[i];
+    };
+  }
+  addColours();
+
+  function randomColour(){
+    let colour = '#';
+    const element = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+
+    for(let i=0; i<6; i++){
+        let index = Math.floor(Math.random()*element.length);
+      colour += element[index];
+    }
+    return colour;
+  }
+
+  btn.addEventListener('click', function(e){
+    addColours();
+  });
+
+
+
+
+  </script>
   </body>
 </html>
