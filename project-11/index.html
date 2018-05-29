@@ -24,12 +24,11 @@
 
       </div>
       <div class="controller">
-        <div class="levels">
-
-        </div>
+        <div class="levels"></div>
         <button id="changeSets">
           Click to Generate
         </button>
+        <div class="show-rgb"></div>
       </div>
     </main>
 
@@ -39,6 +38,7 @@
   const main = document.querySelector('.color-container');
   const btn = document.getElementById('changeSets');
   const shadesContainer = document.querySelector('.levels');
+  const display = document.querySelector('.show-rgb');
 
   function addRow(){
     const rowdiv = document.createElement('div');
@@ -98,7 +98,7 @@
       let temp = e.currentTarget.getAttribute('style');
       let thisColor = temp.split(': ')[1].replace(";", "");
       let colorListInput = thisColor.replace("rgb(", "").replace(")", "");
-
+      display.innerHTML = thisColor;
       stepColourBelt(colorListInput);
     });
   });
