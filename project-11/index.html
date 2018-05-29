@@ -24,6 +24,9 @@
 
       </div>
       <div class="controller">
+        <div class="levels">
+
+        </div>
         <button id="changeSets">
           Click to Generate
         </button>
@@ -35,6 +38,7 @@
 
   const main = document.querySelector('.color-container');
   const btn = document.getElementById('changeSets');
+  const shadesContainer = document.querySelector('.levels');
 
   function addRow(){
     const rowdiv = document.createElement('div');
@@ -86,7 +90,36 @@
   });
 
 
+  // Show levels of selected colour
 
+  allCells.forEach(function(cell){
+    cell.addEventListener('click', function(e){
+      shadesContainer.innerHTML = '';
+      let temp = e.currentTarget.getAttribute('style');
+      let thisColor = temp.split(': ')[1].replace(";", "");
+      let colorListInput = thisColor.replace("rgb(", "").replace(")", "");
+
+      stepColourBelt(colorListInput);
+    });
+  });
+
+
+
+  function stepColourBelt(inputColour){
+    const outer = document.createElement('div');
+    outer.classList.add('shade-container');
+    const innerBox = document.createElement('div');
+    innerBox.classList.add('shade-cell');
+    let step = 0.1;
+
+    for(let i=1; i<= 10; i++){
+      let stepColour = `rgba(${inputColour}, ${step *i})`;
+      innerBox.style.backgroundColor = stepColour;
+      outer.appendChild(innerBox.cloneNode(true));
+    }
+    shadesContainer.appendChild(outer.cloneNode(true));
+
+  };
 
   </script>
   </body>
