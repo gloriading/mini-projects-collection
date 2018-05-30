@@ -21,12 +21,10 @@
     </header>
     <main>
       <div class="display-area">
-        <div class="display">
 
-        </div>
       </div>
       <div class="input-container">
-        <textarea rows="8" id="userInput"></textarea>
+        <textarea rows="8" maxlength="300" id="userInput"></textarea>
         <div class="btns">
           <div class="btn" id="encode">
             encode
@@ -39,14 +37,15 @@
     </main>
 
     <script>
-      const display = document.querySelector('.display');
+      const displayArea = document.querySelector('.display-area');
       const userInput = document.getElementById('userInput');
       const encodeBtn = document.getElementById('encode');
       const decodeBtn = document.getElementById('decode');
-      const codeArr = ["✡","✧","✲","✖︎","✷","❤︎","▷","◼︎","◇","◎","﹆","△","⌗","☽","↖︎","♣︎","⚾︎","⚓︎","☃","▵","⇧","⦿","♕","☖","✄","⌵"];
+      const codeArr = ["✡","✧","✲","⍢","✷","Ω","▷","☎","◇","◎","﹆","△","⌗","☽","⏀","♫","∑","⚮","☃","▵","⇧","⦿","♕","☖","✄","⌵"];
       const letterArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
       encodeBtn.addEventListener('click', function(e){
+        displayArea.innerHTML = '';
         let words = userInput.value;
         let arr = words.split('');
         let resultArr = [];
@@ -54,11 +53,12 @@
         for(let i=0; i<arr.length; i++){
           let charcode = arr[i].charCodeAt(0);
 
-          if(charcode >= 65 && charcode <= 90){
-            // if a letter is capitalized, add "[]"
-            let index = letterArr.indexOf(arr[i].toLowerCase());
-            let upperChar = `[${codeArr[index]}]`;
-            resultArr.push(upperChar);
+          if(charcode >= 65 && charcode < 90){
+            // if a letter is capitalized, add one position A->B
+            resultArr.push(String.fromCharCode(charcode+1));
+          }else if(charcode == 90){
+            // "Z" -> "A"
+            resultArr.push(String.fromCharCode(65));
           }else if(charcode >= 97 && charcode <= 122){
             let index = letterArr.indexOf(arr[i]);
             resultArr.push(codeArr[index]);
@@ -67,9 +67,44 @@
             resultArr.push(arr[i]);
           }
         }
-        console.log(resultArr.join(''));
-        display.innerHTML = resultArr.join('');
+
+        let newDiv = document.createElement('div');
+        newDiv.innerHTML = resultArr.join('');
+        newDiv.classList.add('display');
+        displayArea.appendChild(newDiv.cloneNode(true));
+
       });
+
+
+      decodeBtn.addEventListener('click',function(e){
+        displayArea.innerHTML = '';
+        let words = userInput.value;
+        let arr = words.split('');
+        let resultArr = [];
+
+        for(let i=0; i<arr.length; i++){
+          let charcode = arr[i].charCodeAt(0);
+
+          if(charcode > 65 && charcode <= 90){
+            // if a letter is capitalized, "B" -> "A"
+            resultArr.push(String.fromCharCode(charcode-1));
+          }else if(charcode == 65){
+            // "A" --> "Z"
+            resultArr.push(String.fromCharCode(90));
+          }else if(codeArr.indexOf(arr[i])!= -1){
+            resultArr.push(letterArr[codeArr.indexOf(arr[i])]);
+          }else{
+            resultArr.push(arr[i]);
+          }
+        }
+
+        let newDiv = document.createElement('div');
+        newDiv.innerHTML = resultArr.join('');
+        newDiv.classList.add('display');
+        displayArea.appendChild(newDiv.cloneNode(true));
+
+      });
+
 
 
     </script>
