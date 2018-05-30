@@ -16,11 +16,58 @@
     <header>
       <h2>
         <span><i class="far fa-hdd fa-2x"></i></span>
-        Colour Generator 2.0
+        Secret message encoder/decoder
       </h2>
     </header>
     <main>
-      
+      <div class="display-area">
+
+      </div>
+      <div class="input-container">
+        <textarea rows="8" id="userInput"></textarea>
+        <div class="btns">
+          <div class="btn" id="encode">
+            encode
+          </div>
+          <div class="btn" id="decode">
+            decode
+          </div>
+        </div>
+      </div>
     </main>
+
+    <script>
+      const userInput = document.getElementById('userInput');
+      const encodeBtn = document.getElementById('encode');
+      const decodeBtn = document.getElementById('decode');
+      const codeArr = ["✡","✧","✲","✖︎","✷","❤︎","▷","◼︎","◇","◎","﹆","△","⌗","☽","↖︎","♣︎","⚾︎","⚓︎","☃","▵","⇧","⦿","♕","☖","✄","⌵"];
+      const letterArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+      encodeBtn.addEventListener('click', function(e){
+        let words = userInput.value;
+        let arr = words.split('');
+        let resultArr = [];
+
+        for(let i=0; i<arr.length; i++){
+          let charcode = arr[i].charCodeAt(0);
+
+          if(charcode >= 65 && charcode <= 90){
+            // if a letter is capitalized, add "[]"
+            let index = letterArr.indexOf(arr[i].toLowerCase());
+            let upperChar = `[${codeArr[index]}]`;
+            resultArr.push(upperChar);
+          }else if(charcode >= 97 && charcode <= 122){
+            let index = letterArr.indexOf(arr[i]);
+            resultArr.push(codeArr[index]);
+          }else{
+            // leave non-letter characteristics the same
+            resultArr.push(arr[i]);
+          }
+        }
+        console.log(resultArr.join(''));
+      });
+
+
+    </script>
   </body>
 </html>
