@@ -63,31 +63,31 @@ main {
 }
 
 .display-area {
-  width: 65%;
+  width: 60%;
   height: 100%;
-  border: 1px solid red;
+  border: 2px solid rgba(255, 77, 77, 0.3);
 }
 
 .display {
   margin: 20px;
-  font-size: 18px;
-  /* letter-spacing: 1px; */
+  font-size: 20px;
 }
 
 .input-container {
   width: 35%;
   height: 100%;
-  border: 1px solid blue;
 }
 
 textarea#userInput {
-  margin: 10px;
+  margin: 0px 20px;
   width: 90%;
   font-size: 14px;
+  outline: none;
+  border: 2px solid rgba(44, 44, 84, 0.6);
 }
 
 .btns {
-  margin: 10px auto;
+  margin: 20px auto;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -99,14 +99,29 @@ textarea#userInput {
   border-radius: 5px;
   padding: 5px 20px;
   letter-spacing: 1px;
+  margin-bottom: 5px;
   transition: 0.3s;
 }
+.btn:nth-of-type(2){
+  margin-bottom: 15px;
+}
 
-.btn:first-of-type {
-  margin-bottom: 5px;
+.btn:nth-of-type(3), .btn:nth-of-type(4) {
+  border: 2px solid rgba(255, 159, 67, 0.6);
 }
 
 .btn:hover {
   border: 2px solid rgba(44, 44, 84, 1);
+  background-color: rgba(44, 44, 84, 0.2);
   cursor: pointer;
+}
+
+.btn:nth-of-type(3):hover, .btn:nth-of-type(4):hover {
+  border: 2px solid rgba(255, 159, 67, 1);
+  background-color: rgba(255, 159, 67, 0.2);
+}
+
+.example {
+  margin: 10px auto;
+  width: 80%;
 }

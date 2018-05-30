@@ -32,6 +32,12 @@
           <div class="btn" id="decode">
             decode
           </div>
+          <div class="btn" id="exEncode">
+            encode example
+          </div>
+          <div class="btn" id="exDecode">
+            decode example
+          </div>
         </div>
       </div>
     </main>
@@ -43,6 +49,8 @@
       const decodeBtn = document.getElementById('decode');
       const codeArr = ["✡","✧","✲","⍢","✷","Ω","▷","☎","◇","◎","﹆","△","⌗","☽","⏀","♫","∑","⚮","☃","▵","⇧","⦿","♕","☖","✄","⌵"];
       const letterArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+      const encodeExBtn = document.getElementById('exEncode');
+      const decodeExBtn = document.getElementById('exDecode');
 
       encodeBtn.addEventListener('click', function(e){
         displayArea.innerHTML = '';
@@ -68,11 +76,7 @@
           }
         }
 
-        let newDiv = document.createElement('div');
-        newDiv.innerHTML = resultArr.join('');
-        newDiv.classList.add('display');
-        displayArea.appendChild(newDiv.cloneNode(true));
-
+        production(resultArr);
       });
 
 
@@ -98,15 +102,23 @@
           }
         }
 
+        production(resultArr);
+      });
+
+      function production(resultArr){
         let newDiv = document.createElement('div');
         newDiv.innerHTML = resultArr.join('');
         newDiv.classList.add('display');
         displayArea.appendChild(newDiv.cloneNode(true));
+      }
 
+      encodeExBtn.addEventListener('click', function(){
+        userInput.value = 'Summer is here!';
       });
 
-
-
+      decodeExBtn.addEventListener('click', function(){
+        userInput.value = 'Z⏀⇧ ✡⚮✷ ✡♕✷☃⏀⌗✷ ▵⏀⍢✡✄!';
+      });
     </script>
   </body>
 </html>
