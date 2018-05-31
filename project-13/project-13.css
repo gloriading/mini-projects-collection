@@ -56,3 +56,97 @@ a {
   }
 
 /*      main      */
+main {
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+}
+.grid {
+  flex: 2;
+  border: 1px solid red;
+  position: relative;
+  height: 100%;
+  width: 50%;
+}
+
+.instruction {
+  flex: 0;
+  background-color: #eb5055;
+  transform: translateX(100%);
+  transition: 0.5s ease;
+}
+
+.instruction:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -52px;
+  width: 50px;
+  height: 100px;
+  background-color: #eb5055;
+}
+.instruction:After {
+  content: 'rules';
+  position: absolute;
+  color: white;
+  top: 30px;
+  left: -40px;
+  width: 50px;
+  height: 100px;
+  z-index: 99;
+  background-color: transparent;
+}
+.instruction:hover {
+  flex:1;
+  transform: translateX(0%);
+  cursor: pointer;
+}
+
+.rules {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex:1;
+  position: relative;
+}
+.container .grid {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  border: none;
+  background-color: #eb5055;
+  color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.container .grid > * {
+  margin-top: 10px;
+}
+.one #rock, .two #paper, .three #scissors {
+  left: 25%;
+}
+.one #paper, .two #scissors, .three #rock {
+  left: 60%;
+  z-index: -1;
+}
+
+@keyframes move {
+    from {left: 25%;}
+    to {left: 60%; z-index: 2; transform: scale(1.1) translateY(-50%);}
+}
+
+.instruction:hover .one #rock,
+.instruction:hover .two #paper,
+.instruction:hover .three #scissors
+{
+  animation: move 5s ease 1s 3 forwards;
+}
+
+
+/* #eb5055
+#ffec1a
+#0072c2 */
