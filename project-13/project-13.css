@@ -69,6 +69,61 @@ main {
   width: 50%;
 }
 
+/*     options for players      */
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.option {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+  background-color: #ffec1a;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #eb5055 transparent transparent transparent;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  transition: 0.2s ease;
+}
+.option:hover {
+  cursor: pointer;
+  transform: rotate(30deg);
+}
+.chosen {
+  background-color: #eb5055;
+  color:white;
+}
+
+.display-area {
+  display: flex;
+}
+#afterChosen, #confirmBtn {
+  display: none;
+}
+#confirmBtn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: 3px solid #eb5055;
+  color: #eb5055;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+#confirmBtn:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 3px grey;
+}
+.display {
+  margin: 10px;
+  flex: 1;
+}
+
+
+/*     instruction      */
 .instruction {
   flex: 0;
   background-color: #eb5055;

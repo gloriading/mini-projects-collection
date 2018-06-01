@@ -21,11 +21,29 @@
     <main>
       <!-- 3 clickable options -->
       <div class="grid options">
-
+        <div class="option" id="optionRock">
+          <i class="far fa-hand-rock fa-2x"></i>
+        </div>
+        <div class="option" id="optionPaper">
+          <i class="far fa-hand-paper fa-2x"></i>
+        </div>
+        <div class="option" id="optionScissors">
+          <i class="far fa-hand-scissors fa-2x"></i>
+        </div>
       </div>
       <!-- showing ai selection after clicking -->
-      <div class="grid ai-selection">
+      <div class="grid display-area">
+        <div class="display">
+          <h3 id="afterChosen">You chose:</h3>
+          <div id="userChoiceArea">
+          </div>
+          <button type="button" id="confirmBtn">
+            Fight !
+          </button>
+        </div>
+        <div class="display">
 
+        </div>
       </div>
       <!-- collapsible instruction panel -->
       <div class="grid instruction">
@@ -58,5 +76,31 @@
         </div>
       </div>
     </main>
+
+  <script>
+  // After a button is clicked, place the choice onto userChoiceArea
+  const btns = document.querySelectorAll('.option');
+  const confirmBtn = document.getElementById('confirmBtn');
+
+  const userChoiceArea = document.getElementById('userChoiceArea');
+  const wordsAfterChosen = document.getElementById('afterChosen');
+
+  let userResult, aiResult;
+
+  btns.forEach(btn=>btn.addEventListener('click', function(e){
+
+    userChoiceArea.innerHTML= '';
+    let chosenBtn = this.cloneNode(true);
+    chosenBtn.classList.add('chosen');
+    userChoiceArea.appendChild(chosenBtn);
+
+    afterChosen.style.display = 'block';
+    confirmBtn.style.display = 'block';
+
+    userResult = this.getAttribute('id').split('option')[1].toLowerCase();
+
+  }));
+
+  </script>
   </body>
 </html>
