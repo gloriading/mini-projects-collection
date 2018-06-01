@@ -107,7 +107,7 @@ main {
 .display-area {
   display: flex;
 }
-#afterUserChose, #confirmBtn {
+#afterUserChose, #confirmBtn, #afterAiChose {
   display: none;
 }
 #confirmBtn {
@@ -126,7 +126,15 @@ main {
   margin: 10px;
   flex: 1;
 }
-
+.ai-chosen {
+  width: 100px;
+  height: 100px;
+  background-color: #0072c2;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+}
 
 /*     instruction      */
 .instruction {

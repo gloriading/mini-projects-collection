@@ -42,6 +42,7 @@
           </button>
         </div>
         <div class="display">
+          <h3 id="afterAiChose">AI chose:</h3>
           <div id="display">
 
           </div>
@@ -86,12 +87,13 @@
 
   const userChoiceArea = document.getElementById('userChoiceArea');
   const wordsAfterChosen = document.getElementById('afterUserChose');
+  const wordsAfterAIChosen = document.getElementById('afterAiChose');
 
   const aiDisplayArea = document.getElementById('display');
   const optionArr = [
-    '<i class="far fa-hand-rock fa-5x" id="rock"></i>',
-    '<i class="far fa-hand-paper fa-5x" id="paper"></i>',
-    '<i class="far fa-hand-scissors fa-5x" id="scissors"></i>'
+    '<i class="far fa-hand-rock fa-3x ai-chosen" id="rock"></i>',
+    '<i class="far fa-hand-paper fa-3x ai-chosen" id="paper"></i>',
+    '<i class="far fa-hand-scissors fa-3x ai-chosen" id="scissors"></i>'
   ];
   let counter = 0;
 
@@ -112,9 +114,11 @@
 
   }));
 
-
+// Click on confirmation btn to fight AI
   confirmBtn.addEventListener('click',function(e){
     selecting();
+    wordsAfterAIChosen.style.display = 'block';
+    // this.style.display = 'none';
   });
 
   function selecting(){
