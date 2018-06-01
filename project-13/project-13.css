@@ -63,7 +63,6 @@ main {
 }
 .grid {
   flex: 2;
-  border: 1px solid red;
   position: relative;
   height: 100%;
   width: 50%;
@@ -94,19 +93,25 @@ main {
   cursor: pointer;
   transform: rotate(30deg);
 }
+
 .chosen {
   background-color: #eb5055;
   color:white;
+  font-size: 1.5em;
+}
+.chosen:hover {
+  transform: rotate(0deg) scale(1.2);
+  cursor: auto;
 }
 
 .display-area {
   display: flex;
 }
-#afterChosen, #confirmBtn {
+#afterUserChose, #confirmBtn {
   display: none;
 }
 #confirmBtn {
-  margin-top: 15px;
+  margin-top: 20px;
   padding: 10px 20px;
   border: 3px solid #eb5055;
   color: #eb5055;
@@ -201,6 +206,14 @@ main {
   animation: move 5s ease 1s 3 forwards;
 }
 
+
+.user-select {
+
+}
+
+.ai-select {
+
+}
 
 /* #eb5055
 #ffec1a

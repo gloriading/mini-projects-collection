@@ -21,20 +21,20 @@
     <main>
       <!-- 3 clickable options -->
       <div class="grid options">
-        <div class="option" id="optionRock">
+        <div class="option" id="optionRock" data-index="0">
           <i class="far fa-hand-rock fa-2x"></i>
         </div>
-        <div class="option" id="optionPaper">
+        <div class="option" id="optionPaper" data-index="1">
           <i class="far fa-hand-paper fa-2x"></i>
         </div>
-        <div class="option" id="optionScissors">
+        <div class="option" id="optionScissors" data-index="2">
           <i class="far fa-hand-scissors fa-2x"></i>
         </div>
       </div>
       <!-- showing ai selection after clicking -->
       <div class="grid display-area">
         <div class="display">
-          <h3 id="afterChosen">You chose:</h3>
+          <h3 id="afterUserChose">You chose:</h3>
           <div id="userChoiceArea">
           </div>
           <button type="button" id="confirmBtn">
@@ -42,7 +42,9 @@
           </button>
         </div>
         <div class="display">
+          <div id="display">
 
+          </div>
         </div>
       </div>
       <!-- collapsible instruction panel -->
@@ -83,23 +85,58 @@
   const confirmBtn = document.getElementById('confirmBtn');
 
   const userChoiceArea = document.getElementById('userChoiceArea');
-  const wordsAfterChosen = document.getElementById('afterChosen');
+  const wordsAfterChosen = document.getElementById('afterUserChose');
+
+  const aiDisplayArea = document.getElementById('display');
+  const optionArr = [
+    '<i class="far fa-hand-rock fa-5x" id="rock"></i>',
+    '<i class="far fa-hand-paper fa-5x" id="paper"></i>',
+    '<i class="far fa-hand-scissors fa-5x" id="scissors"></i>'
+  ];
+  let counter = 0;
 
   let userResult, aiResult;
 
   btns.forEach(btn=>btn.addEventListener('click', function(e){
 
     userChoiceArea.innerHTML= '';
+    // let i = parseInt(this.getAttribute('data-index'));
+    // userChoiceArea.innerHTML = optionArr[i];
     let chosenBtn = this.cloneNode(true);
     chosenBtn.classList.add('chosen');
     userChoiceArea.appendChild(chosenBtn);
 
-    afterChosen.style.display = 'block';
+    afterUserChose.style.display = 'block';
     confirmBtn.style.display = 'block';
 
     userResult = this.getAttribute('id').split('option')[1].toLowerCase();
 
   }));
+
+
+  confirmBtn.addEventListener('click',function(e){
+    selecting();
+  });
+
+  function selecting(){
+    const intervalId = setInterval(function(){
+      if(counter > 2){ counter = 0; }
+      let aiOption = optionArr[counter];
+      aiDisplayArea.innerHTML = aiOption;
+      counter++;
+    },100);
+
+    let timeBase = Math.ceil(Math.random()*4000);
+    let time = parseInt(timeBase);
+    setTimeout(function(){
+      clearInterval(intervalId);
+      setTimeout(function(){
+        aiResult = aiDisplayArea.children[0].getAttribute('id');
+        console.log(aiResult);
+      },10);
+    },time);
+
+  }
 
   </script>
   </body>
