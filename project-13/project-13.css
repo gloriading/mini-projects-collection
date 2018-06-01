@@ -52,7 +52,7 @@ a {
     position: absolute;
     color: rgba(255, 77, 77, 0.3);
     top: -10px;
-    left: 32%;
+    left: 28%;
   }
 
 /*      main      */
@@ -107,7 +107,6 @@ main {
 
 .display-area {
   display: flex;
-  border: 1px solid green;
   position: relative;
   overflow: hidden;
 }
