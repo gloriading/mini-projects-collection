@@ -47,6 +47,9 @@
 
           </div>
         </div>
+        <div class="result-area">
+
+        </div>
       </div>
       <!-- collapsible instruction panel -->
       <div class="grid instruction">
@@ -89,6 +92,9 @@
   const wordsAfterChosen = document.getElementById('afterUserChose');
   const wordsAfterAIChosen = document.getElementById('afterAiChose');
 
+  const optionArea = document.querySelector('.options');
+  const resultArea = document.querySelector('.result-area');
+
   const aiDisplayArea = document.getElementById('display');
   const optionArr = [
     '<i class="far fa-hand-rock fa-3x ai-chosen" id="rock"></i>',
@@ -99,28 +105,39 @@
 
   let userResult, aiResult;
 
+// Click on an option
   btns.forEach(btn=>btn.addEventListener('click', function(e){
-
+    // clear previous choice
     userChoiceArea.innerHTML= '';
 
+    // copy, modify, and append the choice
     let chosenBtn = this.cloneNode(true);
     chosenBtn.classList.add('chosen');
     userChoiceArea.appendChild(chosenBtn);
 
+    // display 'You chose' & confirm button
     afterUserChose.style.display = 'block';
     confirmBtn.style.display = 'block';
 
+    // store user result
     userResult = this.getAttribute('id').split('option')[1].toLowerCase();
 
   }));
 
 // Click on confirmation btn to fight AI
   confirmBtn.addEventListener('click',function(e){
+    // AI select
     selecting();
+
+    // display 'AI chose'
     wordsAfterAIChosen.style.display = 'block';
-    // this.style.display = 'none';
+
+    // hide confirmation button & option area
+    this.style.display = 'none';
+    optionArea.style.display = 'none';
   });
 
+// AI select
   function selecting(){
     const intervalId = setInterval(function(){
       if(counter > 2){ counter = 0; }
@@ -130,15 +147,53 @@
     },100);
 
     let timeBase = Math.ceil(Math.random()*4000);
-    let time = parseInt(timeBase);
+    let time = 2000 + parseInt(timeBase);
     setTimeout(function(){
       clearInterval(intervalId);
       setTimeout(function(){
         aiResult = aiDisplayArea.children[0].getAttribute('id');
-        console.log(aiResult);
+        whoWin(aiResult, userResult);
       },10);
     },time);
 
+  }
+
+  function whoWin(ai, user){
+    resultArea.innerHTML = '';
+    
+    resultArea.style.height = '30%';
+    const declareWin = document.createElement('div');
+    declareWin.classList.add('declare-win');
+    const replayBtn = document.createElement('div');
+    replayBtn.classList.add('replay-btn');
+    replayBtn.innerHTML = `<button onclick="replay()"><i class="fas fa-redo-alt fa-2x"></i> Replay</button>`;
+    resultArea.appendChild(declareWin);
+    resultArea.appendChild(replayBtn);
+
+    if(ai == user){
+      declareWin.innerHTML = 'TIE!'
+    }else if(ai == 'paper' && user == 'rock'){
+      declareWin.innerHTML = 'YOU won!';
+    }else if(ai == 'paper' && user == 'scissors'){
+      declareWin.innerHTML = 'AI won!';
+    }else if(ai == 'rock' && user == 'scissors'){
+      declareWin.innerHTML = 'YOU won!';
+    }else if(ai == 'rock' && user == 'paper'){
+      declareWin.innerHTML = 'AI won!';
+    }else if(ai == 'scissors' && user == 'paper'){
+      declareWin.innerHTML = 'YOU won!';
+    }else if(ai == 'scissors' && user == 'rock'){
+      declareWin.innerHTML = 'AI won!';
+    }
+  }
+
+  function replay(){
+    resultArea.style.height = '0%';
+    wordsAfterAIChosen.style.display = 'none';
+    afterUserChose.style.display = 'none';
+    optionArea.style.display = 'flex';
+    userChoiceArea.innerHTML= '';
+    aiDisplayArea.innerHTML ='';
   }
 
   </script>
