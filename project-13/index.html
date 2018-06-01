@@ -21,13 +21,13 @@
     <main>
       <!-- 3 clickable options -->
       <div class="grid options">
-        <div class="option" id="optionRock" data-index="0">
+        <div class="option" id="optionRock">
           <i class="far fa-hand-rock fa-2x"></i>
         </div>
-        <div class="option" id="optionPaper" data-index="1">
+        <div class="option" id="optionPaper">
           <i class="far fa-hand-paper fa-2x"></i>
         </div>
-        <div class="option" id="optionScissors" data-index="2">
+        <div class="option" id="optionScissors">
           <i class="far fa-hand-scissors fa-2x"></i>
         </div>
       </div>
@@ -100,8 +100,7 @@
   btns.forEach(btn=>btn.addEventListener('click', function(e){
 
     userChoiceArea.innerHTML= '';
-    // let i = parseInt(this.getAttribute('data-index'));
-    // userChoiceArea.innerHTML = optionArr[i];
+
     let chosenBtn = this.cloneNode(true);
     chosenBtn.classList.add('chosen');
     userChoiceArea.appendChild(chosenBtn);
