@@ -161,7 +161,7 @@
   function whoWin(ai, user){
     resultArea.innerHTML = '';
 
-    resultArea.style.height = '30%';
+    resultArea.style.width = '100%';
     const declareWin = document.createElement('div');
     declareWin.classList.add('declare-win');
     const replayBtn = document.createElement('div');
@@ -188,7 +188,8 @@
   }
 
   function replay(){
-    resultArea.style.height = '0%';
+    resultArea.innerHTML = '';
+    resultArea.style.width = '0%';
     wordsAfterAIChosen.style.display = 'none';
     afterUserChose.style.display = 'none';
     optionArea.style.display = 'flex';
