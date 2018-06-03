@@ -22,7 +22,12 @@
     </header>
     <main>
       <div class="outer wheel-container">
+        <div class="instruction">
+          <h3>Choose a colour a see monochromatic color schemes.</h3>
+        </div>
+        <div id="wheelContainer">
 
+        </div>
       </div>
       <div class="outer display-container">
         <div class="sample-webpage">
@@ -38,7 +43,7 @@
             </div>
           </div>
           <div class="inner-content">
-            <div class="header">
+            <div class="heading">
               <h1>Enjoy our premium coffee today!</h1>
             </div>
             <div class="content">
@@ -51,6 +56,64 @@
       </div>
     </main>
     <script>
+// Helper Method
+    function qs(classElem){
+      return document.querySelector(`.${classElem}`);
+    }
+    function qsa(classElem){
+      return document.querySelectorAll(`.${classElem}`);
+    }
+
+// Sample webpage
+      const webpage = qs('sample-webpage');
+      const nav = qs('inner-nav');
+      const brand = qs('brand');
+      const links = qs('links');
+      const mainContainer = qs('inner-content');
+      const heading = qs('heading');
+      const content = qs('content');
+      const buttons = qsa('button');
+
+
+// Set up the Color Wheel
+
+    const wheelContainer = document.getElementById('wheelContainer');
+
+    function setColorWheel(){
+        for(let i=0; i<360; i+=10){
+          let colorBar = document.createElement('span');
+          let temp = `hsl(${i}, 100%, 50%)`;
+          colorBar.style.backgroundColor= temp;
+          colorBar.setAttribute('id', temp);
+          colorBar.style.transform = `rotate(${i}deg)`;
+          wheelContainer.appendChild(colorBar) ;
+      }
+    }
+
+//
+    function selectColor(){
+      const allColors = document.querySelectorAll('span') ;
+      allColors.forEach(color => color.addEventListener('click', function(e){
+        let chosenColor = this.getAttribute('id').split('100%')[0];//hsl(80,
+
+        let colorArr = [];
+        for(let i=1; i<=10; i++){
+          let tempColor = `${chosenColor}${i*10}%, 50%)`;
+          colorArr.push(tempColor);
+        }
+
+      }));
+
+    }
+
+
+
+
+
+
+
+    setColorWheel();
+    selectColor();
 
     </script>
   </body>
