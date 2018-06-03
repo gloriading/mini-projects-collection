@@ -56,3 +56,67 @@ a {
   }
 
 /*      main      */
+main {
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+}
+
+/*      colour wheel      */
+.wheel-container {
+  flex: 2;
+  border: 1px dotted red;
+}
+
+/*      display      */
+.display-container {
+  flex: 3;
+  border: 1px dotted green;
+}
+
+.sample-webpage {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+.inner-nav {
+  display: flex;
+  justify-content: space-between;
+  height: 15%;
+}
+.brand {
+  padding: 15px;
+}
+.links {
+  display: flex;
+  justify-content: flex-end;
+}
+.inner-nav a {
+  padding: 15px;
+  transition: 0.2s ease;
+}
+.inner-nav a:hover {
+  transform: translateY(-5px);
+}
+.inner-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+}
+.header {
+  flex:1;
+  font-family: monospace;
+}
+.content {
+  flex: 3;
+  letter-spacing: 1px;
+  text-align: justify;
+}
+.content button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+}
+.content button:hover {
+  cursor: pointer;
+}
