@@ -36,10 +36,10 @@
               <i class="fas fa-coffee fa-2x"></i>
             </div>
             <div class="links">
-              <a href="#">Home</a>
-              <a href="#">About</a>
-              <a href="#">Products</a>
-              <a href="#">Contact</a>
+              <a href="#" class="link">Home</a>
+              <a href="#" class="link">About</a>
+              <a href="#" class="link">Products</a>
+              <a href="#" class="link">Contact</a>
             </div>
           </div>
           <div class="inner-content">
@@ -60,20 +60,26 @@
     function qs(classElem){
       return document.querySelector(`.${classElem}`);
     }
-    function qsa(classElem){
-      return document.querySelectorAll(`.${classElem}`);
+    function qsa(elem){
+      return document.querySelectorAll(`${elem}`);
+    }
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
     }
 
 // Sample webpage
       const webpage = qs('sample-webpage');
       const nav = qs('inner-nav');
       const brand = qs('brand');
-      const links = qs('links');
+      const links = qsa('.link');
       const mainContainer = qs('inner-content');
       const heading = qs('heading');
       const content = qs('content');
       const buttons = qsa('button');
-
 
 // Set up the Color Wheel
 
@@ -96,21 +102,56 @@
       allColors.forEach(color => color.addEventListener('click', function(e){
         let chosenColor = this.getAttribute('id').split('100%')[0];//hsl(80,
 
-        let colorArr = [];
+        let colorBgArr = [];
         for(let i=1; i<=10; i++){
-          let tempColor = `${chosenColor}${i*10}%, 50%)`;
-          colorArr.push(tempColor);
+          let tempColor = `${chosenColor}${i*10}%, 65%)`;
+          colorBgArr.push(tempColor);
         }
 
+        let colorFgArr = [];
+        for(let i=1; i<=10; i++){
+          let tempColor = `${chosenColor}${i*10}%, 25%)`;
+          colorFgArr.push(tempColor);
+        }
+
+        let bgReadyToChoose = shuffle(colorBgArr);
+        setWebBgColor(bgReadyToChoose);
+        let fgReadyToChoose = shuffle(colorFgArr);
+        setWebFgColor(fgReadyToChoose);
       }));
 
     }
 
 
+    function setWebBgColor(arr){
 
+      setBg(arr, nav);
+      setBg(arr, mainContainer);
 
+      let btnBg = arr[Math.floor(Math.random() * arr.length)];
+      for(let btn of buttons){
+        btn.style.backgroundColor = btnBg;
+      }
 
+    }
 
+    function setWebFgColor(arr){
+      setFg(arr, brand);
+      setFg(arr, heading);
+      setFg(arr, content);
+      let linkColor = arr[Math.floor(Math.random() * arr.length)];
+      for(let link of links){
+        link.style.color = linkColor;
+      }
+    }
+
+    function setBg(arr, elem){
+      return elem.style.backgroundColor = arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function setFg(arr, elem){
+      return elem.style.color = arr[Math.floor(Math.random() * arr.length)];
+    }
 
     setColorWheel();
     selectColor();
