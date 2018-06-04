@@ -81,7 +81,9 @@ main {
   background-color: hsl(1, 100%, 50%);
   transform-origin: -300% 50%;
 }
-
+#wheelContainer span:hover {
+  cursor: pointer;
+}
 
 /*      display      */
 .display-container {
@@ -102,7 +104,20 @@ main {
 }
 .brand {
   padding: 15px;
+  position: relative;
 }
+.brand-text {
+  position: absolute;
+  z-index: 1;
+  top: 55%;
+  /* left: 50%; */
+  opacity: 0;
+  width: 100px;
+  height: 30px;
+  border: 1px dotted black;
+  background-color: white;
+}
+
 .links {
   display: flex;
   justify-content: flex-end;

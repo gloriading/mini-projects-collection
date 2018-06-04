@@ -86,7 +86,7 @@
     const wheelContainer = document.getElementById('wheelContainer');
 
     function setColorWheel(){
-        for(let i=0; i<360; i+=10){
+        for(let i=0; i<360; i+=5){
           let colorBar = document.createElement('span');
           let temp = `hsl(${i}, 100%, 50%)`;
           colorBar.style.backgroundColor= temp;
