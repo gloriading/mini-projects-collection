@@ -23,7 +23,7 @@
     <main>
       <div class="outer wheel-container">
         <div class="instruction">
-          <h3>Choose a colour a see monochromatic color schemes.</h3>
+          <h3>Choose a colour to see monochromatic color schemes.</h3>
           <div class="check-colour">
             <i class="far fa-hand-point-right"></i> colours used
           </div>
@@ -36,7 +36,9 @@
         <div class="sample-webpage">
           <div class="colour-used-container">
           <span class="close"><i class="fas fa-times fa-2x"></i></span>
-
+            <div id="appliedColours">
+s
+            </div>
           </div>
           <div class="inner-nav">
             <div class="brand">
@@ -92,7 +94,9 @@
 // Show colors used in sample webpage
     const showColorBtn = qs('check-colour');
     const colourUsedContainer = qs('colour-used-container');
-
+    const closeBtn = qs('close');
+    let usedColourArr = [];
+    const appliedColoursContainer = document.getElementById('appliedColours');
 // Set up the Color Wheel
 
     const wheelContainer = document.getElementById('wheelContainer');
@@ -113,9 +117,15 @@
     function selectColor(){
       const allColors = document.querySelectorAll('.color-bar') ;
       allColors.forEach(color => color.addEventListener('click', function(e){
+        // show button
         showColorBtn.style.display = 'block';
+        // clear used colour array
+        usedColourArr = [];
+        // clear appliedColoursContainer
+        appliedColoursContainer.innerHTML = '';
 
-        let chosenColor = this.getAttribute('id').split('100%')[0];//hsl(80,
+        // Get chosen color and make variations of it
+        let chosenColor = this.getAttribute('id').split('100%')[0];
 
         let colorBgArr = [];
         for(let i=1; i<=10; i++){
@@ -144,9 +154,12 @@
       setBg(arr, nav);
       setBg(arr, mainContainer);
 
-      let btnBg = arr[Math.floor(Math.random() * arr.length)];
+      let btnBgColor = arr[Math.floor(Math.random() * arr.length)];
+
+      usedColourArr.push(btnBgColor);
+
       for(let btn of buttons){
-        btn.style.backgroundColor = btnBg;
+        btn.style.backgroundColor = btnBgColor;
       }
 
     }
@@ -156,17 +169,24 @@
       setFg(arr, heading);
       setFg(arr, content);
       let linkColor = arr[Math.floor(Math.random() * arr.length)];
+
+      usedColourArr.push(linkColor);
+
       for(let link of links){
         link.style.color = linkColor;
       }
     }
 
     function setBg(arr, elem){
-      return elem.style.backgroundColor = arr[Math.floor(Math.random() * arr.length)];
+      let temp = arr[Math.floor(Math.random() * arr.length)];
+      usedColourArr.push(temp);
+      return elem.style.backgroundColor = temp;
     }
 
     function setFg(arr, elem){
-      return elem.style.color = arr[Math.floor(Math.random() * arr.length)];
+      let temp = arr[Math.floor(Math.random() * arr.length)];
+      usedColourArr.push(temp);
+      return elem.style.color = temp;
     }
 
 // Show user all colours used in sample webpage
@@ -174,7 +194,28 @@
     showColorBtn.addEventListener('click', function(){
       showColorBtn.style.display = 'none';
       colourUsedContainer.style.transform = 'translateX(0%)';
+      console.log(usedColourArr);
+      showColorsUsed(usedColourArr);
     });
+
+// close color page
+    closeBtn.addEventListener('click', function(){
+      colourUsedContainer.style.transform = 'translateX(100%)';
+      showColorBtn.style.display = 'block';
+      usedColourArr = [];
+    });
+
+// create color list onto colourUsedContainer
+  function showColorsUsed(arr){
+    for(let elem of arr){
+      let colorCell = document.createElement('div');
+      colorCell.classList.add('color-cell');
+      colorCell.innerText = elem;
+      colorCell.style.backgroundColor = elem;
+      appliedColoursContainer.appendChild(colorCell);
+    }
+
+  }
 
     setColorWheel();
     selectColor();
