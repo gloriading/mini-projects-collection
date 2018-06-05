@@ -23,7 +23,7 @@
     <main>
       <div class="outer wheel-container">
         <div class="instruction">
-          <h3>Choose a colour to see monochromatic color schemes.</h3>
+          <h3>Click a colour to see effects applied on the right.</h3>
           <div class="check-colour">
             <i class="far fa-hand-point-right"></i> colours used
           </div>
@@ -67,11 +67,15 @@ s
     </main>
     <script>
 // Helper Method
-    function qs(classElem){
-      return document.querySelector(`.${classElem}`);
+
+    function qs(elem){
+      return document.querySelector(elem);
     }
     function qsa(elem){
-      return document.querySelectorAll(`${elem}`);
+      return document.querySelectorAll(elem);
+    }
+    function gi(elem){
+      return document.getElementById(elem);
     }
     function shuffle(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
@@ -81,25 +85,26 @@ s
         return arr;
     }
 
-// Sample webpage
-      const webpage = qs('sample-webpage');
-      const nav = qs('inner-nav');
-      const brand = qs('brand');
-      const links = qsa('.link');
-      const mainContainer = qs('inner-content');
-      const heading = qs('heading');
-      const content = qs('content');
-      const buttons = qsa('button');
+// Sample webpage - Variables Declaration
+    const webpage = qs('.sample-webpage');
+    const nav = qs('.inner-nav');
+    const brand = qs('.brand');
+    const links = qsa('.link');
+    const mainContainer = qs('.inner-content');
+    const heading = qs('.heading');
+    const content = qs('.content');
+    const buttons = qsa('button');
 
-// Show colors used in sample webpage
-    const showColorBtn = qs('check-colour');
-    const colourUsedContainer = qs('colour-used-container');
-    const closeBtn = qs('close');
+// Colors used in sample webpage - Variables Declaration
+    const showColorBtn = qs('.check-colour');
+    const colourUsedContainer = qs('.colour-used-container');
+    const closeBtn = qs('.close');
     let usedColourArr = [];
-    const appliedColoursContainer = document.getElementById('appliedColours');
+    const appliedColoursContainer = gi('appliedColours');
+
 // Set up the Color Wheel
 
-    const wheelContainer = document.getElementById('wheelContainer');
+    const wheelContainer = gi('wheelContainer');
 
     function setColorWheel(){
         for(let i=0; i<360; i+=5){
@@ -113,9 +118,10 @@ s
       }
     }
 
-// after click on a color on the wheel
+// Select a color on the wheel
     function selectColor(){
-      const allColors = document.querySelectorAll('.color-bar') ;
+      const allColors = qsa('.color-bar') ;
+
       allColors.forEach(color => color.addEventListener('click', function(e){
         // show button
         showColorBtn.style.display = 'block';
@@ -123,6 +129,8 @@ s
         usedColourArr = [];
         // clear appliedColoursContainer
         appliedColoursContainer.innerHTML = '';
+        // hide the colourUsedContainer
+        colourUsedContainer.style.transform = 'translateX(100%)';
 
         // Get chosen color and make variations of it
         let chosenColor = this.getAttribute('id').split('100%')[0];
