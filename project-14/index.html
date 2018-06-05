@@ -24,6 +24,9 @@
       <div class="outer wheel-container">
         <div class="instruction">
           <h3>Choose a colour a see monochromatic color schemes.</h3>
+          <div class="check-colour">
+            <i class="far fa-hand-point-right"></i> colours used
+          </div>
         </div>
         <div id="wheelContainer">
 
@@ -31,6 +34,10 @@
       </div>
       <div class="outer display-container">
         <div class="sample-webpage">
+          <div class="colour-used-container">
+          <span class="close"><i class="fas fa-times fa-2x"></i></span>
+
+          </div>
           <div class="inner-nav">
             <div class="brand">
               <i class="fas fa-coffee fa-2x"></i>
@@ -50,6 +57,7 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               <button>Learn More</button>
               <button>Order Now</button>
+
             </div>
           </div>
         </div>
@@ -81,6 +89,10 @@
       const content = qs('content');
       const buttons = qsa('button');
 
+// Show colors used in sample webpage
+    const showColorBtn = qs('check-colour');
+    const colourUsedContainer = qs('colour-used-container');
+
 // Set up the Color Wheel
 
     const wheelContainer = document.getElementById('wheelContainer');
@@ -89,6 +101,7 @@
         for(let i=0; i<360; i+=5){
           let colorBar = document.createElement('span');
           let temp = `hsl(${i}, 100%, 50%)`;
+          colorBar.classList.add('color-bar');
           colorBar.style.backgroundColor= temp;
           colorBar.setAttribute('id', temp);
           colorBar.style.transform = `rotate(${i}deg)`;
@@ -96,10 +109,12 @@
       }
     }
 
-//
+// after click on a color on the wheel
     function selectColor(){
-      const allColors = document.querySelectorAll('span') ;
+      const allColors = document.querySelectorAll('.color-bar') ;
       allColors.forEach(color => color.addEventListener('click', function(e){
+        showColorBtn.style.display = 'block';
+
         let chosenColor = this.getAttribute('id').split('100%')[0];//hsl(80,
 
         let colorBgArr = [];
@@ -118,6 +133,7 @@
         setWebBgColor(bgReadyToChoose);
         let fgReadyToChoose = shuffle(colorFgArr);
         setWebFgColor(fgReadyToChoose);
+
       }));
 
     }
@@ -152,6 +168,13 @@
     function setFg(arr, elem){
       return elem.style.color = arr[Math.floor(Math.random() * arr.length)];
     }
+
+// Show user all colours used in sample webpage
+
+    showColorBtn.addEventListener('click', function(){
+      showColorBtn.style.display = 'none';
+      colourUsedContainer.style.transform = 'translateX(0%)';
+    });
 
     setColorWheel();
     selectColor();
