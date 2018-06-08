@@ -22,7 +22,7 @@
     </header>
     <main>
       <div class="container">
-        <button id="first">Click Me</button>
+        <button id="first">Zoom in modal</button>
       </div>
     </main>
 
@@ -40,26 +40,44 @@
     </div>
 
   <script>
-  const btnOne = document.getElementById('first');
-  const overlay = document.querySelector('.overlay');
-  const btnClose = document.querySelector('.close');
-  const contentContainer = document.querySelector('.content-container');
-  const ccOne = document.querySelector('.one');
-  const ccTwo = document.querySelector('.two');
-  const ccThree = document.querySelector('.three');
+  // Helper Method
+
+  function qs(elem){
+    return document.querySelector(elem);
+  }
+  function qsa(elem){
+    return document.querySelectorAll(elem);
+  }
+  function gi(elem){
+    return document.getElementById(elem);
+  }
+
+  // Zoom in Model
+
+  const btnOne = gi('first');
+  const overlay = qs('.overlay');
+  const btnClose = qs('.close');
+  const contentContainer = qs('.content-container');
+  const ccOne = qs('.one');
+  const ccTwo = qs('.two');
+  const ccThree = qs('.three');
 
   btnOne.addEventListener('click', function(){
     overlay.style.transform = 'scale(1)';
+
     setTimeout(function(){
       ccOne.style.transform = 'scale(1)';
     },500);
-      setTimeout(function(){
+
+    setTimeout(function(){
       ccTwo.style.transform = 'translate(-50%, -50%) scale(1)';
     },1000);
-        setTimeout(function(){
+    
+    setTimeout(function(){
       ccThree.style.transform = 'translate(-100%, -100%) scale(1)';
     },1500);
   });
+
   btnClose.addEventListener('click', function(){
     ccThree.style.transform = 'translate(-50%, -50%) scale(0)';
 
