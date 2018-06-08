@@ -20,6 +20,63 @@
         Modal dialog box builder
       </h2>
     </header>
+    <main>
+      <div class="container">
+        <button id="first">Click Me</button>
+      </div>
+    </main>
 
+    <div class="overlay">
+      <span class="close"> close </span>
+      <div class="content-container one">
+        <h1> Love </h1>
+      </div>
+      <div class="content-container two">
+        <h1> Peace </h1>
+      </div>
+      <div class="content-container three">
+        <h1> Music </h1>
+      </div>
+    </div>
+
+  <script>
+  const btnOne = document.getElementById('first');
+  const overlay = document.querySelector('.overlay');
+  const btnClose = document.querySelector('.close');
+  const contentContainer = document.querySelector('.content-container');
+  const ccOne = document.querySelector('.one');
+  const ccTwo = document.querySelector('.two');
+  const ccThree = document.querySelector('.three');
+
+  btnOne.addEventListener('click', function(){
+    overlay.style.transform = 'scale(1)';
+    setTimeout(function(){
+      ccOne.style.transform = 'scale(1)';
+    },500);
+      setTimeout(function(){
+      ccTwo.style.transform = 'translate(-50%, -50%) scale(1)';
+    },1000);
+        setTimeout(function(){
+      ccThree.style.transform = 'translate(-100%, -100%) scale(1)';
+    },1500);
+  });
+  btnClose.addEventListener('click', function(){
+    ccThree.style.transform = 'translate(-50%, -50%) scale(0)';
+
+    setTimeout(function(){
+      ccTwo.style.transform = 'translate(0%, 0%) scale(0)';
+    },500);
+
+    setTimeout(function(){
+      ccOne.style.transform = 'scale(0)';
+    },1000);
+
+    setTimeout(function(){
+      overlay.style.transform = 'scale(0)';
+    },1500);
+  });
+
+
+  </script>
   </body>
 </html>
