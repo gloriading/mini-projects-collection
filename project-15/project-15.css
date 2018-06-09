@@ -78,7 +78,7 @@ button:hover {
 }
 
 /*  Zoom in modal      */
-.overlay {
+.overlay-one {
   position: absolute;
   top: 0;
   left: 0;
@@ -88,7 +88,8 @@ button:hover {
   transition: 0.5s ease;
   transform: scale(0);
 }
-span.close {
+span.close-one,
+span.close-two {
   font-family: arial;
   text-transform: uppercase;
   color: white;
@@ -98,7 +99,9 @@ span.close {
   cursor: pointer;
   transition: 0.2s;
 }
-span.close:hover {
+span.close-one:hover,
+span.close-two:hover
+ {
   transform: translateY(-5px);
 }
 .content-container {
@@ -115,7 +118,24 @@ span.close:hover {
   line-height: 150px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
-
 .content-container:hover{
   background-color: rgba(255,255,255,0.8);
+}
+
+/*  Slide in modal      */
+.overlay-two {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(100%);
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  transition: 0.3s ease;
+}
+.four {
+  transform: translate(-50%, -250%);
+  width: 400px;
+  height: 400px;
+  border-radius: 0;
 }

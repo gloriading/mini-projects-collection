@@ -23,11 +23,12 @@
     <main>
       <div class="container">
         <button id="first">Zoom in modal</button>
+        <button id="second">Slide in modal</button>
       </div>
     </main>
 
-    <div class="overlay">
-      <span class="close"> close </span>
+    <div class="overlay-one">
+      <span class="close-one"> close </span>
       <div class="content-container one">
         <h1> Love </h1>
       </div>
@@ -37,6 +38,12 @@
       <div class="content-container three">
         <h1> Music </h1>
       </div>
+    </div>
+
+    <div class="overlay-two">
+      <span class="close-two"> close </span>
+      <div class="content-container four">
+        <h1> Friends </h1>        
     </div>
 
   <script>
@@ -55,15 +62,14 @@
   // Zoom in Model
 
   const btnOne = gi('first');
-  const overlay = qs('.overlay');
-  const btnClose = qs('.close');
-  const contentContainer = qs('.content-container');
+  const overlayOne = qs('.overlay-one');
+  const btnCloseOne = qs('.close-one');
   const ccOne = qs('.one');
   const ccTwo = qs('.two');
   const ccThree = qs('.three');
 
   btnOne.addEventListener('click', function(){
-    overlay.style.transform = 'scale(1)';
+    overlayOne.style.transform = 'scale(1)';
 
     setTimeout(function(){
       ccOne.style.transform = 'scale(1)';
@@ -72,13 +78,13 @@
     setTimeout(function(){
       ccTwo.style.transform = 'translate(-50%, -50%) scale(1)';
     },1000);
-    
+
     setTimeout(function(){
       ccThree.style.transform = 'translate(-100%, -100%) scale(1)';
     },1500);
   });
 
-  btnClose.addEventListener('click', function(){
+  btnCloseOne.addEventListener('click', function(){
     ccThree.style.transform = 'translate(-50%, -50%) scale(0)';
 
     setTimeout(function(){
@@ -90,10 +96,34 @@
     },1000);
 
     setTimeout(function(){
-      overlay.style.transform = 'scale(0)';
+      overlayOne.style.transform = 'scale(0)';
     },1500);
   });
 
+  // Slide in Effect
+
+  const btn = gi('second');
+  const btnCloseTWo = qs('.close-two');
+  const overlayTwo = qs('.overlay-two');
+  const innerContainer = qs('.four');
+
+  btn.addEventListener('click', function(){
+
+    overlayTwo.style.transform = 'translateX(0%)';
+
+    setTimeout(function(){
+      innerContainer.style.transform = 'translate(-50%, -50%)';
+    },500);
+  });
+
+  btnCloseTWo.addEventListener('click', function(){
+    innerContainer.style.transform = 'translate(-50%, -250%)';
+
+    setTimeout(function(){
+      overlayTwo.style.transform = 'translateX(100%)';
+    },500);
+
+  });
 
   </script>
   </body>
