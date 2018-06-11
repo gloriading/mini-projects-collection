@@ -43,8 +43,9 @@
     <div class="overlay-two">
       <span class="close-two"> close </span>
       <div class="content-container four">
-        <h1> Friends </h1>        
+        <h1> Friends </h1>
     </div>
+
 
   <script>
   // Helper Method
@@ -102,12 +103,12 @@
 
   // Slide in Effect
 
-  const btn = gi('second');
+  const btnTwo = gi('second');
   const btnCloseTWo = qs('.close-two');
   const overlayTwo = qs('.overlay-two');
   const innerContainer = qs('.four');
 
-  btn.addEventListener('click', function(){
+  btnTwo.addEventListener('click', function(){
 
     overlayTwo.style.transform = 'translateX(0%)';
 
@@ -124,6 +125,7 @@
     },500);
 
   });
+
 
   </script>
   </body>

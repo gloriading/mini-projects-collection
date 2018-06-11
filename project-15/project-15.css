@@ -118,6 +118,7 @@ span.close-two:hover
   line-height: 150px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
+
 .content-container:hover{
   background-color: rgba(255,255,255,0.8);
 }
@@ -133,6 +134,7 @@ span.close-two:hover
   background-color: rgba(0,0,0,0.7);
   transition: 0.3s ease;
 }
+
 .four {
   transform: translate(-50%, -250%);
   width: 400px;
